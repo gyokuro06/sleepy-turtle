@@ -129,10 +129,6 @@ a {
 }
 
 @media print {
-	/*
-	 * PDF は画面より詰めて読める密度に。html の font-size を下げることで
-	 * rem ベースの余白・文字サイズがまとめて縮小する。
-	 */
 	html {
 		font-size: 10.5pt;
 	}
