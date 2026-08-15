@@ -1,0 +1,164 @@
+---
+import { skillCategories } from '../data/works';
+import { getIcon } from '../lib/icons';
+---
+
+<section class="section" aria-labelledby="skills-heading">
+	<div class="section-heading">
+		<span class="section-num" aria-hidden="true">01</span>
+		<h2 id="skills-heading" class="section-title">スキル</h2>
+	</div>
+	<div class="skill-table">
+		{skillCategories.map((cat) => (
+			<div class="skill-row">
+				<span class="skill-cat-label">{cat.label}</span>
+				<ul class="skill-tags">
+					{cat.items.toSorted((a, b) => b.years - a.years).map((item) => {
+						const icon = getIcon(item.name);
+						return (
+							<li
+								class="skill-tag"
+								style={icon ? `--brand: #${icon.hex}` : undefined}
+								data-has-icon={icon ? '' : undefined}
+							>
+								{icon && (
+									<svg
+										class="skill-icon"
+										viewBox="0 0 24 24"
+										aria-hidden="true"
+									>
+										<path d={icon.path} fill="currentColor" />
+									</svg>
+								)}
+								{item.name}
+								<span class="skill-tag-years">{item.years}年</span>
+							</li>
+						);
+					})}
+				</ul>
+			</div>
+		))}
+	</div>
+</section>
+
+<style>
+	.section {
+		display: flex;
+		flex-direction: column;
+		gap: var(--space-6);
+	}
+
+	.section-heading {
+		display: flex;
+		align-items: baseline;
+		gap: var(--space-3);
+		padding-block-end: var(--space-3);
+		border-block-end: 1px solid var(--c-line);
+	}
+
+	.section-num {
+		font-family: var(--font-display);
+		font-size: var(--text-sm);
+		font-weight: 700;
+		color: var(--c-amber);
+		letter-spacing: 0.05em;
+	}
+
+	.section-title {
+		margin: 0;
+		font-family: var(--font-display);
+		font-size: var(--text-xl);
+		font-weight: 400;
+		color: var(--c-text);
+	}
+
+	.skill-table {
+		container-type: inline-size;
+		container-name: skills;
+		display: flex;
+		flex-direction: column;
+		gap: var(--space-3);
+	}
+
+	.skill-row {
+		display: grid;
+		grid-template-columns: minmax(min-content, var(--skill-label-col)) 1fr;
+		gap: var(--space-2) var(--space-5);
+		align-items: start;
+		padding-block: var(--space-2);
+		border-block-end: 1px solid var(--c-line);
+	}
+
+	.skill-row:last-child {
+		border-block-end: none;
+	}
+
+	.skill-cat-label {
+		padding-top: var(--space-1);
+		font-size: var(--text-xs);
+		font-weight: 700;
+		letter-spacing: 0.06em;
+		color: var(--c-text-muted);
+		white-space: nowrap;
+	}
+
+	.skill-tags {
+		list-style: none;
+		margin: 0;
+		padding: 0;
+		display: flex;
+		flex-wrap: wrap;
+		gap: 0.35em;
+	}
+
+	.skill-tag {
+		display: inline-flex;
+		align-items: center;
+		gap: 0.4em;
+		padding: 0.3em 0.8em;
+		border: 1px solid var(--c-teal-border);
+		border-radius: var(--radius-pill);
+		background: var(--c-teal-bg);
+		font-size: var(--text-xs);
+		font-weight: 500;
+		color: var(--c-teal);
+		line-height: 1.5;
+		white-space: nowrap;
+	}
+
+	.skill-tag[data-has-icon] {
+		border-color: color-mix(in srgb, var(--brand) 30%, transparent);
+		background: color-mix(in srgb, var(--brand) 10%, var(--c-mix-paper));
+		color: color-mix(in srgb, var(--brand) 80%, var(--c-mix-ink));
+	}
+
+	.skill-tag-years {
+		font-size: 0.85em;
+		color: color-mix(in srgb, currentColor 55%, transparent);
+	}
+
+	.skill-icon {
+		flex-shrink: 0;
+		width: 1em;
+		height: 1em;
+		color: var(--brand);
+	}
+
+	@container skills (max-width: 40rem) {
+		.skill-row {
+			grid-template-columns: 1fr;
+		}
+	}
+
+	@media print {
+		.section-num {
+			color: var(--c-print-muted);
+		}
+
+		.skill-tag {
+			background: var(--c-print-tag-bg);
+			border-color: var(--c-print-tag-border);
+			color: var(--c-print-tag-text);
+		}
+	}
+</style>

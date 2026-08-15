@@ -1,0 +1,221 @@
+---
+import { projects } from '../data/works';
+import { getIcon } from '../lib/icons';
+---
+
+<section class="section" aria-labelledby="projects-heading">
+	<div class="section-heading">
+		<span class="section-num" aria-hidden="true">02</span>
+		<h2 id="projects-heading" class="section-title">参画プロジェクト</h2>
+	</div>
+	<div class="project-list">
+		{projects.map((project) => (
+			<article class="project-card" aria-label={project.title}>
+				<h3 class="project-title">{project.title}</h3>
+				<div class="project-meta">
+					<span class="project-period">{project.period}</span>
+					<span class="project-meta-sep" aria-hidden="true" />
+					<span class="project-meta-item">チーム {project.teamSize}</span>
+					<span class="project-meta-sep" aria-hidden="true" />
+					<span class="project-meta-item">{project.role}</span>
+				</div>
+				<ul class="project-tags">
+					{project.techStack.map((tech) => {
+						const icon = getIcon(tech);
+						return (
+							<li
+								class="project-tag"
+								style={icon ? `--brand: #${icon.hex}` : undefined}
+								data-has-icon={icon ? '' : undefined}
+							>
+								{icon && (
+									<svg
+										class="skill-icon"
+										viewBox="0 0 24 24"
+										aria-hidden="true"
+									>
+										<path d={icon.path} fill="currentColor" />
+									</svg>
+								)}
+								{tech}
+							</li>
+						);
+					})}
+				</ul>
+				<div class="project-body">
+					<div class="project-block">
+						<h3 class="project-block-label">概要</h3>
+						<p class="project-block-text">{project.summary}</p>
+					</div>
+					<div class="project-block">
+						<h3 class="project-block-label">課題と解決</h3>
+						<p class="project-block-text">{project.challenge}</p>
+					</div>
+				</div>
+			</article>
+		))}
+	</div>
+</section>
+
+<style>
+	.section {
+		display: flex;
+		flex-direction: column;
+		gap: var(--space-6);
+	}
+
+	.section-heading {
+		display: flex;
+		align-items: baseline;
+		gap: var(--space-3);
+		padding-block-end: var(--space-3);
+		border-block-end: 1px solid var(--c-line);
+	}
+
+	.section-num {
+		font-family: var(--font-display);
+		font-size: var(--text-sm);
+		font-weight: 700;
+		color: var(--c-amber);
+		letter-spacing: 0.05em;
+	}
+
+	.section-title {
+		margin: 0;
+		font-family: var(--font-display);
+		font-size: var(--text-xl);
+		font-weight: 400;
+		color: var(--c-text);
+	}
+
+	.project-list {
+		display: flex;
+		flex-direction: column;
+		gap: var(--space-5);
+	}
+
+	.project-card {
+		background: var(--c-surface);
+		border: 1px solid var(--c-line);
+		border-inline-start: 3px solid var(--c-teal);
+		border-radius: 0 var(--radius-lg) var(--radius-lg) 0;
+		padding: clamp(var(--space-5), 2vw, var(--space-6)) clamp(var(--space-5), 2.5vw, var(--space-7));
+		display: flex;
+		flex-direction: column;
+		gap: var(--space-4);
+		break-inside: avoid;
+	}
+
+	.project-title {
+		margin: 0;
+		font-size: var(--text-lg);
+		font-weight: 700;
+		color: var(--c-text);
+		line-height: 1.4;
+	}
+
+	.project-meta {
+		display: flex;
+		flex-wrap: wrap;
+		align-items: center;
+		gap: 0.35em 0;
+		font-size: var(--text-sm);
+		color: var(--c-text-sub);
+	}
+
+	.project-period {
+		font-weight: 700;
+		color: var(--c-text);
+	}
+
+	.project-meta-sep {
+		display: inline-block;
+		width: 1px;
+		height: 0.85em;
+		background: var(--c-line-strong);
+		margin-inline: 0.65em;
+		vertical-align: middle;
+	}
+
+	.project-tags {
+		list-style: none;
+		margin: 0;
+		padding: 0;
+		display: flex;
+		flex-wrap: wrap;
+		gap: 0.35em;
+	}
+
+	.project-tag {
+		display: inline-flex;
+		align-items: center;
+		gap: 0.35em;
+		padding: 0.25em 0.6em;
+		border: 1px solid var(--c-teal-border);
+		border-radius: var(--radius-sm);
+		background: var(--c-teal-bg);
+		font-size: var(--text-xs);
+		font-weight: 500;
+		color: var(--c-teal);
+		line-height: 1.5;
+	}
+
+	.project-tag[data-has-icon] {
+		border-color: color-mix(in srgb, var(--brand) 30%, transparent);
+		background: color-mix(in srgb, var(--brand) 10%, var(--c-mix-paper));
+		color: color-mix(in srgb, var(--brand) 80%, var(--c-mix-ink));
+	}
+
+	.skill-icon {
+		flex-shrink: 0;
+		width: 1em;
+		height: 1em;
+		color: var(--brand);
+	}
+
+	.project-body {
+		display: flex;
+		flex-direction: column;
+		gap: var(--space-4);
+	}
+
+	.project-block {
+		display: flex;
+		flex-direction: column;
+		gap: var(--space-1);
+	}
+
+	.project-block-label {
+		margin: 0;
+		font-size: var(--text-xs);
+		font-weight: 700;
+		letter-spacing: 0.06em;
+		color: var(--c-text-muted);
+	}
+
+	.project-block-text {
+		margin: 0;
+		font-size: var(--text-md);
+		line-height: 1.85;
+		color: var(--c-text);
+		max-width: min(var(--measure-body), 100%);
+	}
+
+	@media print {
+		.section-num {
+			color: var(--c-print-muted);
+		}
+
+		.project-tag {
+			background: var(--c-print-tag-bg);
+			border-color: var(--c-print-tag-border);
+			color: var(--c-print-tag-text);
+		}
+
+		.project-card {
+			background: var(--c-print-bg);
+			border-color: var(--c-print-tag-border);
+			border-inline-start-color: var(--c-print-accent);
+		}
+	}
+</style>

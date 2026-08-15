@@ -1,0 +1,391 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<meta name="design_doc_mode" content="canvas">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  body { margin:0; background:#e7e6e1; font-family:"Noto Sans JP", sans-serif; -webkit-font-smoothing:antialiased; }
+  a { color:#1f4b8f; text-decoration:none; border-bottom:1px solid rgba(31,75,143,.35); }
+  a:hover { color:#14335f; border-bottom-color:#14335f; }
+</style>
+</helmet>
+
+<section style="padding:64px 64px 120px; display:flex; flex-direction:column; gap:64px; max-width:3000px">
+
+  <div style="display:flex; flex-direction:column; gap:28px; max-width:960px">
+    <div style="display:flex; align-items:baseline; gap:16px">
+      <span style="font-family:'JetBrains Mono',monospace; font-size:11px; letter-spacing:.14em; color:#1f4b8f">TURN 1</span>
+      <span style="height:1px; flex:1; background:#c9c8c2"></span>
+    </div>
+    <h1 style="margin:0; font-size:40px; line-height:1.25; font-weight:700; letter-spacing:.01em; color:#14161a; text-wrap:pretty">職務経歴書 Web サイト<br>デザインコンセプト・トークン・モック3案</h1>
+    <p style="margin:0; font-size:15px; line-height:1.95; color:#4a4f57; text-wrap:pretty">スイス・グリッドを骨格に、遊び心はタイポと余白のリズムだけで出す方針。装飾を足さないので、画面のまま A4 に流しても書類としての体裁が崩れない。アクセントは濃紺 1 色のみ、グレースケール印刷でも情報の階層が保たれる。</p>
+
+    <div style="display:grid; grid-template-columns:repeat(3,1fr); gap:1px; background:#c9c8c2; border:1px solid #c9c8c2">
+      <div style="background:#fbfaf7; padding:24px 22px; display:flex; flex-direction:column; gap:10px">
+        <span style="font-family:'JetBrains Mono',monospace; font-size:11px; letter-spacing:.12em; color:#1f4b8f">01 / GRID</span>
+        <h3 style="margin:0; font-size:17px; font-weight:700; color:#14161a">読み手が4種いる前提の骨格</h3>
+        <p style="margin:0; font-size:13px; line-height:1.9; color:#4a4f57">非エンジニアの採用担当は要約と実績、技術面接官は技術スタックと工夫の記述を読む。同じ紙面で読む順路を分けられるよう、左ラベル＋右本文の固定グリッドで「拾い読み」を成立させる。</p>
+      </div>
+      <div style="background:#fbfaf7; padding:24px 22px; display:flex; flex-direction:column; gap:10px">
+        <span style="font-family:'JetBrains Mono',monospace; font-size:11px; letter-spacing:.12em; color:#1f4b8f">02 / RHYTHM</span>
+        <h3 style="margin:0; font-size:17px; font-weight:700; color:#14161a">遊び心は級差と余白で</h3>
+        <p style="margin:0; font-size:13px; line-height:1.9; color:#4a4f57">見出しは 44px、本文は 13px。10 倍近い級差と、セクション間に入る大きな空白がリズムをつくる。イラストや色面に頼らないので真面目さは損なわれない。</p>
+      </div>
+      <div style="background:#fbfaf7; padding:24px 22px; display:flex; flex-direction:column; gap:10px">
+        <span style="font-family:'JetBrains Mono',monospace; font-size:11px; letter-spacing:.12em; color:#1f4b8f">03 / PRINT</span>
+        <h3 style="margin:0; font-size:17px; font-weight:700; color:#14161a">画面と紙が同一のレイアウト</h3>
+        <p style="margin:0; font-size:13px; line-height:1.9; color:#4a4f57">本文カラムを A4 幅（794px / 実寸 210mm）に固定。プロジェクト 1 件＝1 ブロックを分割禁止にし、9 件すべて同じ粒度で並べても改ページで途切れない。</p>
+      </div>
+    </div>
+  </div>
+
+  <div style="display:flex; flex-direction:column; gap:24px; max-width:1180px">
+    <div style="display:flex; align-items:baseline; gap:16px">
+      <h2 style="margin:0; font-size:22px; font-weight:700; color:#14161a">デザイントークン</h2>
+      <span style="height:1px; flex:1; background:#c9c8c2"></span>
+      <span style="font-family:'JetBrains Mono',monospace; font-size:11px; color:#7c828c">tokens.v1</span>
+    </div>
+
+    <div style="display:grid; grid-template-columns:1.15fr 1fr; gap:1px; background:#c9c8c2; border:1px solid #c9c8c2">
+      <div style="background:#fbfaf7; padding:26px; display:flex; flex-direction:column; gap:18px">
+        <span style="font-family:'JetBrains Mono',monospace; font-size:11px; letter-spacing:.12em; color:#7c828c">COLOR</span>
+        <div style="display:grid; grid-template-columns:repeat(4,1fr); gap:14px">
+          <div style="display:flex; flex-direction:column; gap:8px"><div style="height:56px; background:#14161a; border:1px solid #c9c8c2"></div><span style="font-family:'JetBrains Mono',monospace; font-size:10px; color:#4a4f57">ink<br>#14161A</span></div>
+          <div style="display:flex; flex-direction:column; gap:8px"><div style="height:56px; background:#4a4f57; border:1px solid #c9c8c2"></div><span style="font-family:'JetBrains Mono',monospace; font-size:10px; color:#4a4f57">ink-70<br>#4A4F57</span></div>
+          <div style="display:flex; flex-direction:column; gap:8px"><div style="height:56px; background:#7c828c; border:1px solid #c9c8c2"></div><span style="font-family:'JetBrains Mono',monospace; font-size:10px; color:#4a4f57">ink-45<br>#7C828C</span></div>
+          <div style="display:flex; flex-direction:column; gap:8px"><div style="height:56px; background:#d8d9d5; border:1px solid #c9c8c2"></div><span style="font-family:'JetBrains Mono',monospace; font-size:10px; color:#4a4f57">rule<br>#D8D9D5</span></div>
+          <div style="display:flex; flex-direction:column; gap:8px"><div style="height:56px; background:#fbfaf7; border:1px solid #c9c8c2"></div><span style="font-family:'JetBrains Mono',monospace; font-size:10px; color:#4a4f57">paper<br>#FBFAF7</span></div>
+          <div style="display:flex; flex-direction:column; gap:8px"><div style="height:56px; background:#f2f1ec; border:1px solid #c9c8c2"></div><span style="font-family:'JetBrains Mono',monospace; font-size:10px; color:#4a4f57">paper-2<br>#F2F1EC</span></div>
+          <div style="display:flex; flex-direction:column; gap:8px"><div style="height:56px; background:#1f4b8f; border:1px solid #c9c8c2"></div><span style="font-family:'JetBrains Mono',monospace; font-size:10px; color:#4a4f57">accent<br>#1F4B8F</span></div>
+          <div style="display:flex; flex-direction:column; gap:8px"><div style="height:56px; background:#e8edf5; border:1px solid #c9c8c2"></div><span style="font-family:'JetBrains Mono',monospace; font-size:10px; color:#4a4f57">accent-tint<br>#E8EDF5</span></div>
+        </div>
+        <p style="margin:0; font-size:12px; line-height:1.85; color:#4a4f57">紙は少し温かい白（#FBFAF7）。アクセントは濃紺 1 色に固定し、リンク・セクション番号・年数バーだけに使う。ステータス色や第 2 アクセントは持たない。</p>
+      </div>
+
+      <div style="background:#fbfaf7; padding:26px; display:flex; flex-direction:column; gap:18px">
+        <span style="font-family:'JetBrains Mono',monospace; font-size:11px; letter-spacing:.12em; color:#7c828c">TYPE — Noto Sans JP / JetBrains Mono</span>
+        <div style="display:flex; flex-direction:column; gap:12px">
+          <div style="display:flex; align-items:baseline; gap:14px; border-bottom:1px dotted #d8d9d5; padding-bottom:10px"><span style="font-family:'JetBrains Mono',monospace; font-size:10px; color:#7c828c; width:104px; flex:none">display / 44 / 700</span><span style="font-size:30px; font-weight:700; color:#14161a; line-height:1.2">山田 太郎</span></div>
+          <div style="display:flex; align-items:baseline; gap:14px; border-bottom:1px dotted #d8d9d5; padding-bottom:10px"><span style="font-family:'JetBrains Mono',monospace; font-size:10px; color:#7c828c; width:104px; flex:none">h2 / 22 / 700</span><span style="font-size:22px; font-weight:700; color:#14161a">職務経歴詳細</span></div>
+          <div style="display:flex; align-items:baseline; gap:14px; border-bottom:1px dotted #d8d9d5; padding-bottom:10px"><span style="font-family:'JetBrains Mono',monospace; font-size:10px; color:#7c828c; width:104px; flex:none">h3 / 17 / 700</span><span style="font-size:17px; font-weight:700; color:#14161a">社内利用のための LLM 開発</span></div>
+          <div style="display:flex; align-items:baseline; gap:14px; border-bottom:1px dotted #d8d9d5; padding-bottom:10px"><span style="font-family:'JetBrains Mono',monospace; font-size:10px; color:#7c828c; width:104px; flex:none">body / 13 / 400</span><span style="font-size:13px; line-height:1.9; color:#4a4f57">要件定義から運用まで一貫して関わってきた点が強みです。</span></div>
+          <div style="display:flex; align-items:baseline; gap:14px"><span style="font-family:'JetBrains Mono',monospace; font-size:10px; color:#7c828c; width:104px; flex:none">label / 11 / mono</span><span style="font-family:'JetBrains Mono',monospace; font-size:11px; letter-spacing:.12em; color:#1f4b8f">2025.08 — 2025.12</span></div>
+        </div>
+        <p style="margin:0; font-size:12px; line-height:1.85; color:#4a4f57">和文は Noto Sans JP のみ。年月・技術名・番号など「データ」の顔をしたものだけ等幅にして、真面目な紙面に小さな遊びを入れる。行間は本文 1.9、見出し 1.25。</p>
+      </div>
+    </div>
+
+    <div style="display:grid; grid-template-columns:repeat(3,1fr); gap:1px; background:#c9c8c2; border:1px solid #c9c8c2">
+      <div style="background:#fbfaf7; padding:24px; display:flex; flex-direction:column; gap:14px">
+        <span style="font-family:'JetBrains Mono',monospace; font-size:11px; letter-spacing:.12em; color:#7c828c">SPACE — 4px base</span>
+        <div style="display:flex; align-items:flex-end; gap:8px">
+          <div style="width:4px; height:4px; background:#1f4b8f"></div>
+          <div style="width:8px; height:8px; background:#1f4b8f"></div>
+          <div style="width:12px; height:12px; background:#1f4b8f"></div>
+          <div style="width:16px; height:16px; background:#1f4b8f"></div>
+          <div style="width:24px; height:24px; background:#1f4b8f"></div>
+          <div style="width:32px; height:32px; background:#1f4b8f"></div>
+          <div style="width:48px; height:48px; background:#1f4b8f"></div>
+          <div style="width:64px; height:64px; background:#1f4b8f"></div>
+        </div>
+        <p style="margin:0; font-family:'JetBrains Mono',monospace; font-size:10px; color:#4a4f57">4 · 8 · 12 · 16 · 24 · 32 · 48 · 64</p>
+        <p style="margin:0; font-size:12px; line-height:1.85; color:#4a4f57">セクション間 64、ブロック間 32、行内 8。これ以外の余白は使わない。</p>
+      </div>
+      <div style="background:#fbfaf7; padding:24px; display:flex; flex-direction:column; gap:14px">
+        <span style="font-family:'JetBrains Mono',monospace; font-size:11px; letter-spacing:.12em; color:#7c828c">GRID — 12 col / gutter 16</span>
+        <div style="display:grid; grid-template-columns:repeat(12,1fr); gap:4px; height:64px">
+          <div style="background:#e8edf5; border-top:2px solid #1f4b8f"></div><div style="background:#e8edf5; border-top:2px solid #1f4b8f"></div><div style="background:#e8edf5; border-top:2px solid #1f4b8f"></div>
+          <div style="background:#f2f1ec; border-top:2px solid #d8d9d5"></div><div style="background:#f2f1ec; border-top:2px solid #d8d9d5"></div><div style="background:#f2f1ec; border-top:2px solid #d8d9d5"></div><div style="background:#f2f1ec; border-top:2px solid #d8d9d5"></div><div style="background:#f2f1ec; border-top:2px solid #d8d9d5"></div><div style="background:#f2f1ec; border-top:2px solid #d8d9d5"></div><div style="background:#f2f1ec; border-top:2px solid #d8d9d5"></div><div style="background:#f2f1ec; border-top:2px solid #d8d9d5"></div><div style="background:#f2f1ec; border-top:2px solid #d8d9d5"></div>
+        </div>
+        <p style="margin:0; font-size:12px; line-height:1.85; color:#4a4f57">ラベル 3 カラム＋本文 9 カラム。A4 幅 794px、左右マージン 56px を画面・紙で共通にする。</p>
+      </div>
+      <div style="background:#fbfaf7; padding:24px; display:flex; flex-direction:column; gap:14px">
+        <span style="font-family:'JetBrains Mono',monospace; font-size:11px; letter-spacing:.12em; color:#7c828c">PDF RULES</span>
+        <ul style="margin:0; padding-left:18px; font-size:12px; line-height:2; color:#4a4f57">
+          <li>プロジェクト 1 件＝改ページ禁止の 1 ブロック</li>
+          <li>見出し直後の改ページ禁止（見出しは本文と同伴）</li>
+          <li>サイド目次・ホバー・スクロール演出は印刷時に非表示</li>
+          <li>各ページ下部に氏名とページ番号を反復</li>
+          <li>背景ベタは 1 箇所まで（インク量とグレー化を考慮）</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <div style="display:flex; flex-direction:column; gap:28px">
+    <div style="display:flex; align-items:baseline; gap:16px; max-width:1180px">
+      <h2 style="margin:0; font-size:22px; font-weight:700; color:#14161a">モック3案</h2>
+      <span style="height:1px; flex:1; background:#c9c8c2"></span>
+      <span style="font-size:12px; color:#7c828c">密度・骨格・アクセントの3軸で振っています</span>
+    </div>
+
+    <div style="display:flex; gap:48px; align-items:flex-start; flex-wrap:wrap">
+
+      <div id="1a" style="display:flex; flex-direction:column; gap:14px; width:794px; flex:none">
+        <div style="display:flex; align-items:center; gap:12px">
+          <span style="font-family:'JetBrains Mono',monospace; font-size:12px; font-weight:500; color:#fbfaf7; background:#1f4b8f; padding:4px 9px; letter-spacing:.08em">1a</span>
+          <strong style="font-size:15px; color:#14161a">Grid Dossier — 左ラベル2カラム／高密度／アクセントは級だけ</strong>
+        </div>
+        <p style="margin:0 0 6px; font-size:12px; line-height:1.8; color:#4a4f57">左ラベル固定で「どこに何があるか」が一目でわかる資料型。9 件を同粒度で並べても走査しやすい。アクセントは細い罫と年月ラベルのみ、最も硬い印象。</p>
+
+        <div style="background:#fbfaf7; border:1px solid #c9c8c2; padding:56px; display:flex; flex-direction:column; gap:40px">
+          <div style="display:flex; justify-content:space-between; align-items:flex-end; border-bottom:2px solid #14161a; padding-bottom:16px">
+            <div style="display:flex; flex-direction:column; gap:6px">
+              <span style="font-family:'JetBrains Mono',monospace; font-size:11px; letter-spacing:.16em; color:#1f4b8f">CURRICULUM VITAE</span>
+              <h3 style="margin:0; font-size:34px; font-weight:700; letter-spacing:.02em; color:#14161a">職務経歴書</h3>
+            </div>
+            <div style="display:flex; flex-direction:column; gap:4px; text-align:right; font-size:12px; color:#4a4f57">
+              <strong style="font-size:15px; font-weight:700; color:#14161a">山田 太郎</strong>
+              <span style="font-family:'JetBrains Mono',monospace; font-size:11px">github.com/yamada-taro</span>
+              <span style="font-family:'JetBrains Mono',monospace; font-size:11px; color:#7c828c">2026.08 更新</span>
+            </div>
+          </div>
+
+          <div style="display:grid; grid-template-columns:132px 1fr; gap:16px">
+            <div style="display:flex; flex-direction:column; gap:4px"><span style="font-family:'JetBrains Mono',monospace; font-size:11px; letter-spacing:.1em; color:#1f4b8f">01</span><span style="font-size:13px; font-weight:700; color:#14161a">要約</span></div>
+            <p style="margin:0; font-size:13px; line-height:1.95; color:#4a4f57; text-wrap:pretty">Web アプリケーション開発に約 5 年。アジャイル（XP）と、要件定義から運用まで一貫して関わってきた点が強みです。MVP を早く形にしてコアな価値を触ってもらい、早く方向転換できる動き方が得意で、マイクロサービス環境で言語・フレームワークが異なる複数サービスを横断してきたためキャッチアップに自信があります。</p>
+          </div>
+
+          <div style="display:grid; grid-template-columns:132px 1fr; gap:16px">
+            <div style="display:flex; flex-direction:column; gap:4px"><span style="font-family:'JetBrains Mono',monospace; font-size:11px; letter-spacing:.1em; color:#1f4b8f">02</span><span style="font-size:13px; font-weight:700; color:#14161a">スキル</span></div>
+            <div style="display:flex; flex-direction:column; gap:12px">
+              <div style="display:grid; grid-template-columns:88px 1fr; gap:8px 14px; align-items:baseline">
+                <span style="font-family:'JetBrains Mono',monospace; font-size:10px; letter-spacing:.08em; color:#7c828c">LANG</span>
+                <div style="display:flex; flex-wrap:wrap; gap:4px 14px; font-size:12px; line-height:1.7; color:#4a4f57"><span style="color:#14161a; font-weight:700">Java <span style="font-family:'JetBrains Mono',monospace; font-size:10px; color:#1f4b8f">5</span></span><span style="color:#14161a; font-weight:700">Kotlin <span style="font-family:'JetBrains Mono',monospace; font-size:10px; color:#1f4b8f">4</span></span><span style="color:#14161a; font-weight:700">TypeScript <span style="font-family:'JetBrains Mono',monospace; font-size:10px; color:#1f4b8f">4</span></span><span>Clojure <span style="font-family:'JetBrains Mono',monospace; font-size:10px; color:#7c828c">3</span></span><span>F# <span style="font-family:'JetBrains Mono',monospace; font-size:10px; color:#7c828c">3</span></span><span>Python <span style="font-family:'JetBrains Mono',monospace; font-size:10px; color:#7c828c">2</span></span><span>Rust <span style="font-family:'JetBrains Mono',monospace; font-size:10px; color:#7c828c">2</span></span><span>Go <span style="font-family:'JetBrains Mono',monospace; font-size:10px; color:#7c828c">1</span></span></div>
+                <span style="font-family:'JetBrains Mono',monospace; font-size:10px; letter-spacing:.08em; color:#7c828c">FRAMEWORK</span>
+                <div style="display:flex; flex-wrap:wrap; gap:4px 14px; font-size:12px; line-height:1.7; color:#4a4f57"><span style="color:#14161a; font-weight:700">SpringBoot <span style="font-family:'JetBrains Mono',monospace; font-size:10px; color:#1f4b8f">5</span></span><span>Angular <span style="font-family:'JetBrains Mono',monospace; font-size:10px; color:#7c828c">3</span></span><span>Vue.js <span style="font-family:'JetBrains Mono',monospace; font-size:10px; color:#7c828c">2</span></span><span>React / Next.js <span style="font-family:'JetBrains Mono',monospace; font-size:10px; color:#7c828c">2</span></span><span>.NET <span style="font-family:'JetBrains Mono',monospace; font-size:10px; color:#7c828c">2</span></span><span>lit <span style="font-family:'JetBrains Mono',monospace; font-size:10px; color:#7c828c">1</span></span></div>
+                <span style="font-family:'JetBrains Mono',monospace; font-size:10px; letter-spacing:.08em; color:#7c828c">INFRA</span>
+                <div style="display:flex; flex-wrap:wrap; gap:4px 14px; font-size:12px; line-height:1.7; color:#4a4f57"><span style="color:#14161a; font-weight:700">Docker <span style="font-family:'JetBrains Mono',monospace; font-size:10px; color:#1f4b8f">5</span></span><span style="color:#14161a; font-weight:700">GCP <span style="font-family:'JetBrains Mono',monospace; font-size:10px; color:#1f4b8f">4</span></span><span>Kubernetes / Helm <span style="font-family:'JetBrains Mono',monospace; font-size:10px; color:#7c828c">3</span></span><span>Jenkins / Buildkite <span style="font-family:'JetBrains Mono',monospace; font-size:10px; color:#7c828c">4</span></span><span>AWS <span style="font-family:'JetBrains Mono',monospace; font-size:10px; color:#7c828c">2</span></span></div>
+                <span style="font-family:'JetBrains Mono',monospace; font-size:10px; letter-spacing:.08em; color:#7c828c">DB / AI</span>
+                <div style="display:flex; flex-wrap:wrap; gap:4px 14px; font-size:12px; line-height:1.7; color:#4a4f57"><span style="color:#14161a; font-weight:700">PostgreSQL <span style="font-family:'JetBrains Mono',monospace; font-size:10px; color:#1f4b8f">5</span></span><span>MySQL <span style="font-family:'JetBrains Mono',monospace; font-size:10px; color:#7c828c">5</span></span><span>ElasticSearch <span style="font-family:'JetBrains Mono',monospace; font-size:10px; color:#7c828c">1</span></span><span>MLOps / SentenceTransformer <span style="font-family:'JetBrains Mono',monospace; font-size:10px; color:#7c828c">2</span></span></div>
+              </div>
+              <span style="font-family:'JetBrains Mono',monospace; font-size:9px; color:#7c828c; letter-spacing:.04em">数字は経験年数（年）／太字は主力</span>
+            </div>
+          </div>
+
+          <div style="display:grid; grid-template-columns:132px 1fr; gap:16px">
+            <div style="display:flex; flex-direction:column; gap:4px"><span style="font-family:'JetBrains Mono',monospace; font-size:11px; letter-spacing:.1em; color:#1f4b8f">03</span><span style="font-size:13px; font-weight:700; color:#14161a">職務経歴<br>詳細</span><span style="font-family:'JetBrains Mono',monospace; font-size:10px; color:#7c828c">9 件</span></div>
+            <div style="display:flex; flex-direction:column; gap:24px">
+              <div style="border-top:1px solid #14161a; padding-top:14px; display:flex; flex-direction:column; gap:12px">
+                <div style="display:flex; justify-content:space-between; align-items:baseline; gap:16px">
+                  <h4 style="margin:0; font-size:15px; font-weight:700; color:#14161a">データ生成機械学習モデルの学習</h4>
+                  <span style="font-family:'JetBrains Mono',monospace; font-size:11px; color:#1f4b8f; white-space:nowrap">2025.08 — 2025.12</span>
+                </div>
+                <div style="display:grid; grid-template-columns:repeat(4,1fr); gap:1px; background:#d8d9d5; border:1px solid #d8d9d5">
+                  <div style="background:#fbfaf7; padding:8px 10px; display:flex; flex-direction:column; gap:3px"><span style="font-family:'JetBrains Mono',monospace; font-size:9px; color:#7c828c">TEAM</span><span style="font-size:11px; color:#14161a">4 人／業務委託</span></div>
+                  <div style="background:#fbfaf7; padding:8px 10px; display:flex; flex-direction:column; gap:3px"><span style="font-family:'JetBrains Mono',monospace; font-size:9px; color:#7c828c">LANG</span><span style="font-size:11px; color:#14161a">Python / LightGBM</span></div>
+                  <div style="background:#fbfaf7; padding:8px 10px; display:flex; flex-direction:column; gap:3px"><span style="font-family:'JetBrains Mono',monospace; font-size:9px; color:#7c828c">INFRA</span><span style="font-size:11px; color:#14161a">Docker / Buildkite / GCP</span></div>
+                  <div style="background:#fbfaf7; padding:8px 10px; display:flex; flex-direction:column; gap:3px"><span style="font-family:'JetBrains Mono',monospace; font-size:9px; color:#7c828c">PROCESS</span><span style="font-size:11px; color:#14161a">アジャイル（XP）</span></div>
+                </div>
+                <div style="display:grid; grid-template-columns:64px 1fr; gap:10px 14px; font-size:12px; line-height:1.9">
+                  <span style="font-family:'JetBrains Mono',monospace; font-size:10px; color:#1f4b8f; padding-top:3px">ROLE</span><span style="color:#4a4f57">問題設計／アルゴリズム開発／データ設計／MLOps／実装・テスト</span>
+                  <span style="font-family:'JetBrains Mono',monospace; font-size:10px; color:#1f4b8f; padding-top:3px">課題</span><span style="color:#4a4f57">世の中に前例のない「非上場企業データの推定」を解く必要があり、有効な特徴量が未知だった。</span>
+                  <span style="font-family:'JetBrains Mono',monospace; font-size:10px; color:#1f4b8f; padding-top:3px">打手</span><span style="color:#4a4f57">ドメインエキスパートと頻繁に対話してドメイン知識を深め、複数のモデル設計を実験。実験コードを差し込めるアーキテクチャを整備し、試行回数を上げた。</span>
+                  <span style="font-family:'JetBrains Mono',monospace; font-size:10px; color:#1f4b8f; padding-top:3px">成果</span><span style="color:#4a4f57">データ整合性を保った自動更新の仕組みを提案・主導し安定運用へ。データ提供とモデル提供のリリースを分離し、価値提供を最優先にするチーム運用を確立。</span>
+                </div>
+              </div>
+              <div style="border-top:1px solid #d8d9d5; padding-top:14px; display:flex; justify-content:space-between; align-items:baseline; gap:16px; opacity:.55">
+                <h4 style="margin:0; font-size:15px; font-weight:700; color:#14161a">キャリア開発のための Web アプリケーション開発（BtoB）</h4>
+                <span style="font-family:'JetBrains Mono',monospace; font-size:11px; color:#1f4b8f; white-space:nowrap">2025.04 — 2025.10</span>
+              </div>
+              <div style="border-top:1px solid #d8d9d5; padding-top:14px; display:flex; justify-content:space-between; align-items:baseline; gap:16px; opacity:.35">
+                <h4 style="margin:0; font-size:15px; font-weight:700; color:#14161a">社内利用のための LLM 開発</h4>
+                <span style="font-family:'JetBrains Mono',monospace; font-size:11px; color:#1f4b8f; white-space:nowrap">2025.03 — 2025.08</span>
+              </div>
+            </div>
+          </div>
+
+          <div style="display:flex; justify-content:space-between; border-top:1px solid #d8d9d5; padding-top:12px; font-family:'JetBrains Mono',monospace; font-size:10px; color:#7c828c">
+            <span>山田 太郎 — 職務経歴書</span><span>1 / 5</span>
+          </div>
+        </div>
+      </div>
+
+      <div id="1b" style="display:flex; flex-direction:column; gap:14px; width:794px; flex:none">
+        <div style="display:flex; align-items:center; gap:12px">
+          <span style="font-family:'JetBrains Mono',monospace; font-size:12px; font-weight:500; color:#fbfaf7; background:#1f4b8f; padding:4px 9px; letter-spacing:.08em">1b</span>
+          <strong style="font-size:15px; color:#14161a">White Field — 1カラム／余白多め／アクセントを面で使う</strong>
+        </div>
+        <p style="margin:0 0 6px; font-size:12px; line-height:1.8; color:#4a4f57">冒頭だけ濃紺のベタ面で表紙的な強さを出し、以降は 1 カラムで余白をたっぷり取る。読み物として通読させたい場合に強い。ページ数は最も増える。</p>
+
+        <div style="background:#fbfaf7; border:1px solid #c9c8c2; display:flex; flex-direction:column">
+          <div style="background:#1f4b8f; color:#fbfaf7; padding:56px 56px 48px; display:flex; flex-direction:column; gap:32px">
+            <span style="font-family:'JetBrains Mono',monospace; font-size:11px; letter-spacing:.16em; color:#bcd0ea">職務経歴書 / CURRICULUM VITAE</span>
+            <h3 style="margin:0; font-size:44px; line-height:1.25; font-weight:700; letter-spacing:.02em">山田 太郎</h3>
+            <div style="display:flex; gap:40px; font-size:12px; color:#dbe5f2">
+              <div style="display:flex; flex-direction:column; gap:4px"><span style="font-family:'JetBrains Mono',monospace; font-size:10px; letter-spacing:.1em; color:#8fadd4">EXPERIENCE</span><span>Web アプリケーション開発 5 年</span></div>
+              <div style="display:flex; flex-direction:column; gap:4px"><span style="font-family:'JetBrains Mono',monospace; font-size:10px; letter-spacing:.1em; color:#8fadd4">GITHUB</span><span style="font-family:'JetBrains Mono',monospace">github.com/yamada-taro</span></div>
+              <div style="display:flex; flex-direction:column; gap:4px"><span style="font-family:'JetBrains Mono',monospace; font-size:10px; letter-spacing:.1em; color:#8fadd4">UPDATED</span><span style="font-family:'JetBrains Mono',monospace">2026.08.11</span></div>
+            </div>
+          </div>
+
+          <div style="padding:56px; display:flex; flex-direction:column; gap:56px">
+            <div style="display:flex; flex-direction:column; gap:20px">
+              <h4 style="margin:0; font-size:22px; font-weight:700; color:#14161a">要約</h4>
+              <p style="margin:0; font-size:15px; line-height:2.1; color:#14161a; max-width:60ch; text-wrap:pretty">Web アプリケーションの開発に約 5 年携わってきました。アジャイル（XP）開発と、要件定義から運用まで一貫して関わってきた点が強みです。</p>
+              <p style="margin:0; font-size:13px; line-height:2.05; color:#4a4f57; max-width:66ch; text-wrap:pretty">PM や実際のユーザーからフィードバックをもらい、開発中の機能はできるだけ早く MVP を作り上げてコアな価値を触ってもらう。そこから早く方向転換できる動き方が得意です。マイクロサービスアーキテクチャの現場で、API やマイクロフロントエンドごとに異なる言語・フレームワークをキャッチアップしながら開発してきました。言われた通りに作るのではなく、本当にユーザーが求めている機能かを PM と考えながら開発できるエンジニアでありたいと考えています。</p>
+            </div>
+
+            <div style="display:flex; flex-direction:column; gap:24px">
+              <h4 style="margin:0; font-size:22px; font-weight:700; color:#14161a">スキル</h4>
+              <div style="display:flex; flex-wrap:wrap; gap:10px 12px; max-width:600px">
+                <span style="display:inline-flex; align-items:baseline; gap:7px; background:#e8edf5; color:#14161a; font-size:14px; font-weight:700; padding:6px 11px">Java / SpringBoot<span style="font-family:'JetBrains Mono',monospace; font-size:11px; font-weight:500; color:#1f4b8f">5y</span></span>
+                <span style="display:inline-flex; align-items:baseline; gap:7px; background:#e8edf5; color:#14161a; font-size:14px; font-weight:700; padding:6px 11px">Kotlin<span style="font-family:'JetBrains Mono',monospace; font-size:11px; font-weight:500; color:#1f4b8f">4y</span></span>
+                <span style="display:inline-flex; align-items:baseline; gap:7px; background:#e8edf5; color:#14161a; font-size:14px; font-weight:700; padding:6px 11px">TypeScript<span style="font-family:'JetBrains Mono',monospace; font-size:11px; font-weight:500; color:#1f4b8f">4y</span></span>
+                <span style="display:inline-flex; align-items:baseline; gap:7px; background:#e8edf5; color:#14161a; font-size:14px; font-weight:700; padding:6px 11px">Docker / K8s<span style="font-family:'JetBrains Mono',monospace; font-size:11px; font-weight:500; color:#1f4b8f">5y</span></span>
+                <span style="display:inline-flex; align-items:baseline; gap:7px; background:#e8edf5; color:#14161a; font-size:14px; font-weight:700; padding:6px 11px">Python / MLOps<span style="font-family:'JetBrains Mono',monospace; font-size:11px; font-weight:500; color:#1f4b8f">2y</span></span>
+              </div>
+              <div style="display:flex; flex-direction:column; gap:8px; max-width:600px">
+                <span style="font-family:'JetBrains Mono',monospace; font-size:10px; letter-spacing:.1em; color:#7c828c">その他の経験</span>
+                <p style="margin:0; font-size:12px; line-height:2.0; color:#4a4f57">Clojure 3y・F# 3y・Rust 2y・Go 1y／Angular 3y・Vue.js 2y・React 2y・.NET 2y・lit 1y／GCP 4y・AWS 2y・Helm・ArgoCD／Jenkins・Buildkite・GoCD・ArgoWorkflow／PostgreSQL・MySQL・ElasticSearch</p>
+              </div>
+            </div>
+
+            <div style="display:flex; flex-direction:column; gap:28px">
+              <h4 style="margin:0; font-size:22px; font-weight:700; color:#14161a">職務経歴詳細</h4>
+              <div style="display:flex; flex-direction:column; gap:20px">
+                <div style="display:flex; flex-direction:column; gap:6px">
+                  <span style="font-family:'JetBrains Mono',monospace; font-size:11px; letter-spacing:.1em; color:#1f4b8f">2025.03 — 2025.08 ／ 業務委託 ／ 4 人チーム</span>
+                  <h5 style="margin:0; font-size:20px; font-weight:700; color:#14161a; line-height:1.4">社内利用のための LLM 開発</h5>
+                </div>
+                <p style="margin:0; font-size:13px; line-height:2.05; color:#4a4f57; max-width:66ch; text-wrap:pretty">Gemma2 をベースに Sentence Transformer で社内ドメイン知識を学習させ、汎用的に使える分類・検索モデルを Vertex AI 上で開発。問題設計からアルゴリズム開発、MLOps、GPU・Vertex AI の設定、API 開発までを担当しました。</p>
+                <div style="display:grid; grid-template-columns:repeat(2,1fr); gap:20px 32px; border-top:1px solid #d8d9d5; padding-top:20px">
+                  <div style="display:flex; flex-direction:column; gap:6px"><span style="font-family:'JetBrains Mono',monospace; font-size:10px; letter-spacing:.1em; color:#1f4b8f">課題</span><p style="margin:0; font-size:12px; line-height:1.95; color:#4a4f57">Vertex AI の GPU 制約と連続稼働上限で学習が完了せず、モデルが GPU に乗り切らない問題があった。</p></div>
+                  <div style="display:flex; flex-direction:column; gap:6px"><span style="font-family:'JetBrains Mono',monospace; font-size:10px; letter-spacing:.1em; color:#1f4b8f">打手</span><p style="margin:0; font-size:12px; line-height:1.95; color:#4a4f57">ML エンジニアと協力し FSDP による並列分散学習、QLoRA・2D-Matryoshka でモデルサイズを圧縮。</p></div>
+                  <div style="display:flex; flex-direction:column; gap:6px"><span style="font-family:'JetBrains Mono',monospace; font-size:10px; letter-spacing:.1em; color:#1f4b8f">工夫</span><p style="margin:0; font-size:12px; line-height:1.95; color:#4a4f57">Buildkite で MLOps を最適化し、失敗は早く落ちるように。実験処理を差し込める設計で毎回のコード量を削減。</p></div>
+                  <div style="display:flex; flex-direction:column; gap:6px"><span style="font-family:'JetBrains Mono',monospace; font-size:10px; letter-spacing:.1em; color:#1f4b8f">成果</span><p style="margin:0; font-size:12px; line-height:1.95; color:#4a4f57">ElasticSearch のベクトル事前生成・索引更新の仕組みを構築し、ベクトル検索 API を実用速度で提供。</p></div>
+                </div>
+              </div>
+            </div>
+
+            <div style="display:flex; justify-content:space-between; border-top:1px solid #d8d9d5; padding-top:12px; font-family:'JetBrains Mono',monospace; font-size:10px; color:#7c828c">
+              <span>山田 太郎 — 職務経歴書</span><span>2 / 8</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div id="1c" style="display:flex; flex-direction:column; gap:14px; width:1020px; flex:none">
+        <div style="display:flex; align-items:center; gap:12px">
+          <span style="font-family:'JetBrains Mono',monospace; font-size:12px; font-weight:500; color:#fbfaf7; background:#1f4b8f; padding:4px 9px; letter-spacing:.08em">1c</span>
+          <strong style="font-size:15px; color:#14161a">Index Rail — サイド目次固定／中密度／アクセントは小さな面</strong>
+        </div>
+        <p style="margin:0 0 6px; font-size:12px; line-height:1.8; color:#4a4f57">Web での閲覧を最優先。左のレールに目次と現在位置を常時表示し、本文は A4 幅そのまま。印刷時はレールが落ちて 1a に近い紙面になる（＝画面と紙の両立案）。</p>
+
+        <div style="border:1px solid #c9c8c2; display:grid; grid-template-columns:226px 1fr; background:#fbfaf7">
+          <aside style="background:#f2f1ec; border-right:1px solid #d8d9d5; padding:40px 24px; display:flex; flex-direction:column; gap:28px; align-self:stretch">
+            <div style="display:flex; flex-direction:column; gap:4px">
+              <strong style="font-size:15px; font-weight:700; color:#14161a">山田 太郎</strong>
+              <span style="font-size:11px; color:#7c828c">Web / バックエンド・ML</span>
+            </div>
+            <nav style="display:flex; flex-direction:column; gap:2px">
+              <span style="font-family:'JetBrains Mono',monospace; font-size:10px; letter-spacing:.12em; color:#7c828c; padding-bottom:8px">CONTENTS</span>
+              <a href="#1c" style="display:flex; gap:10px; align-items:baseline; padding:7px 8px; background:#1f4b8f; color:#fbfaf7; font-size:12px; border-bottom:none"><span style="font-family:'JetBrains Mono',monospace; font-size:10px; opacity:.75">01</span>要約</a>
+              <a href="#1c" style="display:flex; gap:10px; align-items:baseline; padding:7px 8px; color:#14161a; font-size:12px; border-bottom:none" style-hover="background:#e8edf5"><span style="font-family:'JetBrains Mono',monospace; font-size:10px; color:#7c828c">02</span>スキル</a>
+              <a href="#1c" style="display:flex; gap:10px; align-items:baseline; padding:7px 8px; color:#14161a; font-size:12px; border-bottom:none" style-hover="background:#e8edf5"><span style="font-family:'JetBrains Mono',monospace; font-size:10px; color:#7c828c">03</span>技術スタック</a>
+              <a href="#1c" style="display:flex; gap:10px; align-items:baseline; padding:7px 8px; color:#14161a; font-size:12px; border-bottom:none" style-hover="background:#e8edf5"><span style="font-family:'JetBrains Mono',monospace; font-size:10px; color:#7c828c">04</span>職務経歴詳細</a>
+              <div style="display:flex; flex-direction:column; gap:1px; padding:4px 0 4px 26px">
+                <a href="#1c" style="font-size:11px; color:#4a4f57; padding:4px 0; border-bottom:none" style-hover="color:#1f4b8f">データ生成 ML モデル</a>
+                <a href="#1c" style="font-size:11px; color:#4a4f57; padding:4px 0; border-bottom:none" style-hover="color:#1f4b8f">キャリア開発アプリ</a>
+                <a href="#1c" style="font-size:11px; color:#4a4f57; padding:4px 0; border-bottom:none" style-hover="color:#1f4b8f">社内 LLM 開発</a>
+                <a href="#1c" style="font-size:11px; color:#4a4f57; padding:4px 0; border-bottom:none" style-hover="color:#1f4b8f">海外事業向け機能開発</a>
+                <span style="font-family:'JetBrains Mono',monospace; font-size:10px; color:#7c828c; padding:4px 0">＋ 5 件</span>
+              </div>
+            </nav>
+            <div style="margin-top:auto; display:flex; flex-direction:column; gap:8px">
+              <a href="#1c" style="font-family:'JetBrains Mono',monospace; font-size:11px; color:#1f4b8f; border-bottom:none">github.com/yamada-taro</a>
+              <span style="display:inline-flex; align-items:center; justify-content:center; border:1px solid #1f4b8f; color:#1f4b8f; font-size:11px; padding:8px 10px; letter-spacing:.04em">PDF をダウンロード</span>
+              <span style="font-family:'JetBrains Mono',monospace; font-size:9px; color:#7c828c; line-height:1.7">印刷時はこのレールを非表示<br>本文のみ A4 に流れる</span>
+            </div>
+          </aside>
+
+          <div style="padding:48px 56px; display:flex; flex-direction:column; gap:44px">
+            <div style="display:flex; justify-content:space-between; align-items:baseline; border-bottom:2px solid #14161a; padding-bottom:14px">
+              <h3 style="margin:0; font-size:26px; font-weight:700; letter-spacing:.02em; color:#14161a">職務経歴書</h3>
+              <span style="font-family:'JetBrains Mono',monospace; font-size:11px; color:#7c828c">2026.08 更新</span>
+            </div>
+
+            <div style="display:flex; flex-direction:column; gap:14px">
+              <div style="display:flex; align-items:center; gap:10px"><span style="font-family:'JetBrains Mono',monospace; font-size:10px; color:#fbfaf7; background:#1f4b8f; padding:3px 6px">01</span><h4 style="margin:0; font-size:17px; font-weight:700; color:#14161a">要約</h4></div>
+              <p style="margin:0; font-size:13px; line-height:2.0; color:#4a4f57; max-width:68ch; text-wrap:pretty">Web アプリケーション開発に約 5 年。アジャイル（XP）と、要件定義から運用まで一貫して関わってきた点が強みです。MVP を早く作ってコアな価値を触ってもらい、素早く方向転換する動き方が得意。マイクロサービス環境で言語・フレームワークを横断してきたためキャッチアップに自信があります。</p>
+            </div>
+
+            <div style="display:flex; flex-direction:column; gap:16px">
+              <div style="display:flex; align-items:center; gap:10px"><span style="font-family:'JetBrains Mono',monospace; font-size:10px; color:#fbfaf7; background:#1f4b8f; padding:3px 6px">02</span><h4 style="margin:0; font-size:17px; font-weight:700; color:#14161a">スキル</h4></div>
+              <div style="display:flex; flex-direction:column; gap:12px">
+                <div style="display:flex; flex-wrap:wrap; gap:0 1px; background:#d8d9d5; border:1px solid #d8d9d5">
+                  <span style="display:inline-flex; align-items:baseline; gap:6px; background:#fbfaf7; padding:8px 12px; font-size:13px; font-weight:700; color:#14161a">Java / SpringBoot<span style="font-family:'JetBrains Mono',monospace; font-size:10px; font-weight:500; color:#1f4b8f">5y</span></span>
+                  <span style="display:inline-flex; align-items:baseline; gap:6px; background:#fbfaf7; padding:8px 12px; font-size:13px; font-weight:700; color:#14161a">Kotlin<span style="font-family:'JetBrains Mono',monospace; font-size:10px; font-weight:500; color:#1f4b8f">4y</span></span>
+                  <span style="display:inline-flex; align-items:baseline; gap:6px; background:#fbfaf7; padding:8px 12px; font-size:13px; font-weight:700; color:#14161a">TypeScript<span style="font-family:'JetBrains Mono',monospace; font-size:10px; font-weight:500; color:#1f4b8f">4y</span></span>
+                  <span style="display:inline-flex; align-items:baseline; gap:6px; background:#fbfaf7; padding:8px 12px; font-size:13px; font-weight:700; color:#14161a">Docker / K8s<span style="font-family:'JetBrains Mono',monospace; font-size:10px; font-weight:500; color:#1f4b8f">5y</span></span>
+                  <span style="display:inline-flex; align-items:baseline; gap:6px; background:#fbfaf7; padding:8px 12px; font-size:13px; font-weight:700; color:#14161a">Python / MLOps<span style="font-family:'JetBrains Mono',monospace; font-size:10px; font-weight:500; color:#1f4b8f">2y</span></span>
+                </div>
+                <p style="margin:0; font-size:12px; line-height:1.95; color:#4a4f57">要件定義から運用までの一貫した担当／アジャイル（XP・TDD・ペアプロ）5y／コンテナ環境の構築 5y／CI・CD 環境構築 4y／機械学習モデル学習（Gemma2・LightGBM）2y</p>
+              </div>
+            </div>
+
+            <div style="display:flex; flex-direction:column; gap:16px">
+              <div style="display:flex; align-items:center; gap:10px"><span style="font-family:'JetBrains Mono',monospace; font-size:10px; color:#fbfaf7; background:#1f4b8f; padding:3px 6px">03</span><h4 style="margin:0; font-size:17px; font-weight:700; color:#14161a">技術スタック</h4></div>
+              <div style="display:grid; grid-template-columns:96px 1fr; gap:10px 16px; align-items:start">
+                <span style="font-family:'JetBrains Mono',monospace; font-size:10px; letter-spacing:.08em; color:#7c828c; padding-top:3px">LANG</span>
+                <div style="display:flex; flex-wrap:wrap; gap:6px"><span style="font-size:11px; color:#14161a; border:1px solid #d8d9d5; padding:3px 8px">Kotlin</span><span style="font-size:11px; color:#14161a; border:1px solid #d8d9d5; padding:3px 8px">Java</span><span style="font-size:11px; color:#14161a; border:1px solid #d8d9d5; padding:3px 8px">Rust</span><span style="font-size:11px; color:#14161a; border:1px solid #d8d9d5; padding:3px 8px">Go</span><span style="font-size:11px; color:#14161a; border:1px solid #d8d9d5; padding:3px 8px">Clojure</span><span style="font-size:11px; color:#14161a; border:1px solid #d8d9d5; padding:3px 8px">F#</span><span style="font-size:11px; color:#14161a; border:1px solid #d8d9d5; padding:3px 8px">TypeScript</span><span style="font-size:11px; color:#14161a; border:1px solid #d8d9d5; padding:3px 8px">Python</span></div>
+                <span style="font-family:'JetBrains Mono',monospace; font-size:10px; letter-spacing:.08em; color:#7c828c; padding-top:3px">FRAMEWORK</span>
+                <div style="display:flex; flex-wrap:wrap; gap:6px"><span style="font-size:11px; color:#14161a; border:1px solid #d8d9d5; padding:3px 8px">SpringBoot</span><span style="font-size:11px; color:#14161a; border:1px solid #d8d9d5; padding:3px 8px">.NET Framework</span><span style="font-size:11px; color:#14161a; border:1px solid #d8d9d5; padding:3px 8px">Vue.js</span><span style="font-size:11px; color:#14161a; border:1px solid #d8d9d5; padding:3px 8px">React</span><span style="font-size:11px; color:#14161a; border:1px solid #d8d9d5; padding:3px 8px">Angular</span><span style="font-size:11px; color:#14161a; border:1px solid #d8d9d5; padding:3px 8px">lit</span></div>
+                <span style="font-family:'JetBrains Mono',monospace; font-size:10px; letter-spacing:.08em; color:#7c828c; padding-top:3px">CLOUD / K8S</span>
+                <div style="display:flex; flex-wrap:wrap; gap:6px"><span style="font-size:11px; color:#14161a; border:1px solid #d8d9d5; padding:3px 8px">Google Cloud</span><span style="font-size:11px; color:#14161a; border:1px solid #d8d9d5; padding:3px 8px">AWS</span><span style="font-size:11px; color:#14161a; border:1px solid #d8d9d5; padding:3px 8px">Docker</span><span style="font-size:11px; color:#14161a; border:1px solid #d8d9d5; padding:3px 8px">Kubernetes</span><span style="font-size:11px; color:#14161a; border:1px solid #d8d9d5; padding:3px 8px">Helm</span><span style="font-size:11px; color:#14161a; border:1px solid #d8d9d5; padding:3px 8px">ArgoCD</span></div>
+                <span style="font-family:'JetBrains Mono',monospace; font-size:10px; letter-spacing:.08em; color:#7c828c; padding-top:3px">PIPELINE / DB</span>
+                <div style="display:flex; flex-wrap:wrap; gap:6px"><span style="font-size:11px; color:#14161a; border:1px solid #d8d9d5; padding:3px 8px">Jenkins</span><span style="font-size:11px; color:#14161a; border:1px solid #d8d9d5; padding:3px 8px">Buildkite</span><span style="font-size:11px; color:#14161a; border:1px solid #d8d9d5; padding:3px 8px">GoCD</span><span style="font-size:11px; color:#14161a; border:1px solid #d8d9d5; padding:3px 8px">Argo Workflow</span><span style="font-size:11px; color:#14161a; border:1px solid #d8d9d5; padding:3px 8px">PostgreSQL</span><span style="font-size:11px; color:#14161a; border:1px solid #d8d9d5; padding:3px 8px">MySQL</span></div>
+              </div>
+            </div>
+
+            <div style="display:flex; flex-direction:column; gap:18px">
+              <div style="display:flex; align-items:center; gap:10px"><span style="font-family:'JetBrains Mono',monospace; font-size:10px; color:#fbfaf7; background:#1f4b8f; padding:3px 6px">04</span><h4 style="margin:0; font-size:17px; font-weight:700; color:#14161a">職務経歴詳細</h4><span style="font-family:'JetBrains Mono',monospace; font-size:10px; color:#7c828c">9 件 / 2020.03 —</span></div>
+              <div style="border:1px solid #d8d9d5; padding:22px; display:flex; flex-direction:column; gap:16px">
+                <div style="display:flex; justify-content:space-between; align-items:baseline; gap:16px">
+                  <h5 style="margin:0; font-size:16px; font-weight:700; color:#14161a">海外事業向けの機能開発</h5>
+                  <span style="font-family:'JetBrains Mono',monospace; font-size:11px; color:#1f4b8f; white-space:nowrap">2024.09 — 2025.03</span>
+                </div>
+                <div style="display:flex; flex-wrap:wrap; gap:8px 18px; font-size:11px; color:#4a4f57; border-bottom:1px solid #d8d9d5; padding-bottom:14px">
+                  <span>業務委託 ／ 4 人チーム</span><span>Kotlin / F# / TypeScript / .NET</span><span>Docker / Jenkins / GCP</span><span>PostgreSQL / MySQL</span>
+                </div>
+                <div style="display:grid; grid-template-columns:repeat(2,1fr); gap:16px 28px">
+                  <div style="display:flex; flex-direction:column; gap:5px"><span style="font-family:'JetBrains Mono',monospace; font-size:10px; letter-spacing:.08em; color:#1f4b8f">役割</span><p style="margin:0; font-size:12px; line-height:1.95; color:#4a4f57">要件定義／工数見積もり／インフラ構築／設計・実装・テスト／CI・CD 構築</p></div>
+                  <div style="display:flex; flex-direction:column; gap:5px"><span style="font-family:'JetBrains Mono',monospace; font-size:10px; letter-spacing:.08em; color:#1f4b8f">課題</span><p style="margin:0; font-size:12px; line-height:1.95; color:#4a4f57">PO との優先順位変更が頻発しチームが疲弊、近視眼的になっていた。組織的には Web Components 活用の知見も不足。</p></div>
+                  <div style="display:flex; flex-direction:column; gap:5px"><span style="font-family:'JetBrains Mono',monospace; font-size:10px; letter-spacing:.08em; color:#1f4b8f">打手</span><p style="margin:0; font-size:12px; line-height:1.95; color:#4a4f57">Web Components を自ら試作して知見をチームに還元。PO の根本目標を確認し、優先順位の変更理由を共有できる形に。</p></div>
+                  <div style="display:flex; flex-direction:column; gap:5px"><span style="font-family:'JetBrains Mono',monospace; font-size:10px; letter-spacing:.08em; color:#1f4b8f">成果</span><p style="margin:0; font-size:12px; line-height:1.95; color:#4a4f57">各国の法規・文化にフィットしたローカライズ機能を提供。開発チームと PO の優先順位に対する共通認識を確立。</p></div>
+                </div>
+              </div>
+              <div style="display:flex; flex-direction:column">
+                <div style="display:flex; justify-content:space-between; align-items:baseline; border-bottom:1px solid #d8d9d5; padding:12px 0; font-size:13px; color:#14161a"><span>海外知見共有サービスのマイグレーション・機能開発</span><span style="font-family:'JetBrains Mono',monospace; font-size:11px; color:#7c828c">2024.04 — 2024.09</span></div>
+                <div style="display:flex; justify-content:space-between; align-items:baseline; border-bottom:1px solid #d8d9d5; padding:12px 0; font-size:13px; color:#14161a"><span>市場分析アプリのニュース機能開発</span><span style="font-family:'JetBrains Mono',monospace; font-size:11px; color:#7c828c">2023.04 — 2024.04</span></div>
+                <div style="display:flex; justify-content:space-between; align-items:baseline; border-bottom:1px solid #d8d9d5; padding:12px 0; font-size:13px; color:#14161a"><span>市場分析アプリの企業リスト機能 新規開発</span><span style="font-family:'JetBrains Mono',monospace; font-size:11px; color:#7c828c">2022.12 — 2023.04</span></div>
+                <div style="display:flex; justify-content:space-between; align-items:baseline; border-bottom:1px solid #d8d9d5; padding:12px 0; font-size:13px; color:#14161a; opacity:.5"><span>データ取り込み API の新規開発</span><span style="font-family:'JetBrains Mono',monospace; font-size:11px; color:#7c828c">2021.08 — 2022.12</span></div>
+              </div>
+            </div>
+
+            <div style="display:flex; justify-content:space-between; border-top:1px solid #d8d9d5; padding-top:12px; font-family:'JetBrains Mono',monospace; font-size:10px; color:#7c828c">
+              <span>山田 太郎 — 職務経歴書</span><span>3 / 6</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+    <p style="margin:0; font-size:13px; line-height:1.9; color:#4a4f57; max-width:70ch">氏名・GitHub はプレースホルダーです。<a href="#1a">1a</a> は資料としての硬さ、<a href="#1b">1b</a> は通読性、<a href="#1c">1c</a> は Web 体験と印刷の両立が強み。案を決めていただければ、9 プロジェクト全件を実装した実データ版を作ります。</p>
+  </div>
+
+</section>
+
+</x-dc>
+</body>
+</html>

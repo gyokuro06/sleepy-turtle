@@ -1,0 +1,144 @@
+/*
+ * CSS Design Policy
+ * ─────────────────────────────────────────────────────────────────────────
+ * font-size : rem のみ。値は 1rem（ルートフォントサイズ）に対する倍率で定義する。
+ *             コンポーネント内の付随テキスト（バッジ内の年数表記等）は
+ *             親の font-size に追従させるため em を使う。
+ *
+ * layout    : 構造的なレイアウト（section 間の gap, ページ margin 等）は rem。
+ *             コンポーネント内部のスペース（padding, icon サイズ等）は em。
+ *             → rem : ルートに固定したいスペース
+ *             → em  : フォントサイズに比例させたいスペース
+ *
+ * border    : 装飾的な細線（1px, 2px, 3px 程度）は px を許容する。
+ * ─────────────────────────────────────────────────────────────────────────
+ */
+
+:root {
+	/* ── Palette ─────────────────────────────────── */
+	--c-bg:          #f7f6f2;
+	--c-surface:     #ffffff;
+
+	--c-text:        #141414;
+	--c-text-sub:    #4e4e58;
+	--c-text-muted:  #9898a0;
+
+	--c-line:        #e3e1db;
+	--c-line-strong: #c5c3bc;
+
+	/* teal — professional accent */
+	--c-teal:        #2c7873;
+	--c-teal-bg:     #e8f4f3;
+	--c-teal-border: #a8d5d1;
+	--c-on-teal:     #ffffff;
+
+	/* amber — decorative / playful */
+	--c-amber:       #b87333;
+
+	/* brand-mix bases (simple-icons hex と混ぜる基準色) */
+	--c-mix-paper:   #ffffff;
+	--c-mix-ink:     #111111;
+
+	/* print */
+	--c-print-bg:         #ffffff;
+	--c-print-text:       #000000;
+	--c-print-line:       #cccccc;
+	--c-print-muted:      #888888;
+	--c-print-tag-bg:     #f5f5f5;
+	--c-print-tag-border: #bbbbbb;
+	--c-print-tag-text:   #333333;
+	--c-print-accent:     #666666;
+
+	/* ── Typography ──────────────────────────────── */
+	--font-sans:    'Zen Maru Gothic', system-ui, -apple-system, sans-serif;
+	--font-display: 'Zen Kurenaido', serif;
+
+	/*
+	 * Type scale — 1rem の倍率。html / ユーザー設定の font-size に追従する。
+	 *
+	 *   --text-xs  : 0.75    タグ・メタ情報・補足テキスト
+	 *   --text-sm  : 0.875   カード本文・補助情報
+	 *   --text-md  : 1       本文（基準）
+	 *   --text-lg  : 1.125   リード文・強調本文
+	 *   --text-xl  : 1.5     セクション見出し
+	 *   --text-2xl : 2       ページ内大見出し
+	 *   --text-3xl : 2.5     ページタイトル
+	 */
+	--text-xs:  calc(1rem * 0.75);
+	--text-sm:  calc(1rem * 0.875);
+	--text-md:  1rem;
+	--text-lg:  calc(1rem * 1.125);
+	--text-xl:  calc(1rem * 1.5);
+	--text-2xl: calc(1rem * 2);
+	--text-3xl: calc(1rem * 2.5);
+
+	/* ── Spacing (multiples of 1rem) ─────────────── */
+	--space-1:  0.25rem;
+	--space-2:  0.5rem;
+	--space-3:  0.75rem;
+	--space-4:  1rem;
+	--space-5:  1.25rem;
+	--space-6:  1.5rem;
+	--space-7:  1.75rem;
+	--space-8:  2rem;
+	--space-10: 2.5rem;
+	--space-12: 3rem;
+	--space-14: 3.5rem;
+	--space-16: 4rem;
+	--space-20: 5rem;
+
+	/* ── Layout ──────────────────────────────────── */
+	--page-max: 54rem;
+	--page-gutter: clamp(1rem, 4vw, 2rem);
+	--page-width: min(calc(100% - 2 * var(--page-gutter)), var(--page-max));
+	--skill-label-col: 7rem;
+	--measure-lead: 40em;
+	--measure-body: 70ch;
+
+	/* ── Radius ──────────────────────────────────── */
+	--radius-sm: 4px;
+	--radius-md: 6px;
+	--radius-lg: 8px;
+	--radius-pill: 999px;
+}
+
+html,
+body {
+	margin: 0;
+	width: 100%;
+	min-height: 100%;
+}
+
+html {
+	font-family: var(--font-sans);
+	color: var(--c-text);
+	background: var(--c-bg);
+}
+
+body {
+	min-height: 100vh;
+	background: var(--c-bg);
+	color: var(--c-text);
+	line-height: 1.8;
+}
+
+a {
+	color: inherit;
+	text-decoration-thickness: 1px;
+	text-underline-offset: 0.25em;
+}
+
+@media print {
+	body {
+		background: var(--c-print-bg);
+		color: var(--c-print-text);
+	}
+
+	.no-print {
+		display: none !important;
+	}
+
+	@page {
+		margin: 1.5cm;
+	}
+}

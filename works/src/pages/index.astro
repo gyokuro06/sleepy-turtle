@@ -1,0 +1,58 @@
+---
+import Layout from '../components/Layout.astro';
+import Intro from '../components/Intro.astro';
+import SkillTable from '../components/SkillTable.astro';
+import ProjectList from '../components/ProjectList.astro';
+import { profile } from '../data/works';
+---
+
+<Layout title="職務経歴書 | gyokuro06" description={profile.lead[0].replaceAll('|', '')}>
+	<div class="page">
+		<Intro />
+		<main class="main">
+			<SkillTable />
+			<ProjectList />
+		</main>
+		<footer class="footer no-print">
+			<p>gyokuro06.github.io/works</p>
+		</footer>
+	</div>
+</Layout>
+
+<style>
+	.page {
+		min-height: 100vh;
+		display: flex;
+		flex-direction: column;
+	}
+
+	.main {
+		flex: 1;
+		width: var(--page-width);
+		margin-inline: auto;
+		padding-block: clamp(var(--space-8), 4vw, var(--space-12)) clamp(var(--space-12), 6vw, var(--space-20));
+		display: flex;
+		flex-direction: column;
+		gap: clamp(var(--space-10), 4vw, var(--space-14));
+	}
+
+	.footer {
+		border-block-start: 1px solid var(--c-line);
+		padding: var(--space-4) var(--space-8);
+		text-align: center;
+		font-size: var(--text-xs);
+		color: var(--c-text-muted);
+	}
+
+	.footer p {
+		margin: 0;
+	}
+
+	@media print {
+		.main {
+			width: 100%;
+			padding-block: var(--space-6) var(--space-8);
+			gap: var(--space-8);
+		}
+	}
+</style>

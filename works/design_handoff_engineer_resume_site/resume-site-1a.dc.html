@@ -1,0 +1,298 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing:border-box; }
+  body { margin:0; background:#e7e6e1; font-family:"Noto Sans JP", sans-serif; -webkit-font-smoothing:antialiased; }
+  a { color:#1f4b8f; text-decoration:none; border-bottom:1px solid rgba(31,75,143,.35); }
+  a:hover { color:#14335f; border-bottom-color:#14335f; }
+  @page { size:A4; margin:14mm 0; }
+  @media print {
+    body { background:#fff; }
+    [data-print="hide"] { display:none !important; }
+    [data-print="page"] { padding:0 !important; border:none !important; }
+    [data-print="keep"] { break-inside:avoid; page-break-inside:avoid; }
+    [data-print="lead"] { break-after:avoid; page-break-after:avoid; }
+  }
+</style>
+</helmet>
+
+<div style="display:flex; align-items:flex-start; justify-content:center; gap:40px; padding:40px 40px 96px; width:fit-content; min-width:100%; margin:0 auto">
+
+  <sc-if value="{{ showRail }}" hint-placeholder-val="{{ true }}">
+    <aside data-print="hide" style="position:sticky; top:40px; width:214px; flex:none; display:flex; flex-direction:column; gap:26px; padding:28px 22px; background:#f2f1ec; border:1px solid #d8d9d5">
+      <div style="display:flex; flex-direction:column; gap:4px">
+        <strong style="font-size:15px; font-weight:700; color:#14161a">山田 太郎</strong>
+        <span style="font-size:11px; color:#7c828c">Web / バックエンド・ML</span>
+      </div>
+      <nav style="display:flex; flex-direction:column; gap:2px">
+        <span style="font-family:'JetBrains Mono',monospace; font-size:10px; letter-spacing:.12em; color:#7c828c; padding-bottom:6px">CONTENTS</span>
+        <a href="#sec-01" style="display:flex; gap:10px; align-items:baseline; padding:6px 8px; color:#14161a; font-size:12px; border-bottom:none" style-hover="background:#e8edf5"><span style="font-family:'JetBrains Mono',monospace; font-size:10px; color:#7c828c">01</span>要約</a>
+        <a href="#sec-02" style="display:flex; gap:10px; align-items:baseline; padding:6px 8px; color:#14161a; font-size:12px; border-bottom:none" style-hover="background:#e8edf5"><span style="font-family:'JetBrains Mono',monospace; font-size:10px; color:#7c828c">02</span>スキル</a>
+        <a href="#sec-03" style="display:flex; gap:10px; align-items:baseline; padding:6px 8px; color:#14161a; font-size:12px; border-bottom:none" style-hover="background:#e8edf5"><span style="font-family:'JetBrains Mono',monospace; font-size:10px; color:#7c828c">03</span>職務経歴詳細</a>
+        <div style="display:flex; flex-direction:column; gap:1px; padding:2px 0 2px 26px">
+          <a href="#p-01" style="font-size:11px; color:#4a4f57; padding:3px 0; border-bottom:none" style-hover="color:#1f4b8f">データ生成 ML モデル</a>
+          <a href="#p-02" style="font-size:11px; color:#4a4f57; padding:3px 0; border-bottom:none" style-hover="color:#1f4b8f">キャリア開発アプリ</a>
+          <a href="#p-03" style="font-size:11px; color:#4a4f57; padding:3px 0; border-bottom:none" style-hover="color:#1f4b8f">社内 LLM 開発</a>
+          <a href="#p-04" style="font-size:11px; color:#4a4f57; padding:3px 0; border-bottom:none" style-hover="color:#1f4b8f">海外事業向け機能開発</a>
+          <a href="#p-05" style="font-size:11px; color:#4a4f57; padding:3px 0; border-bottom:none" style-hover="color:#1f4b8f">知見共有サービス移行</a>
+          <a href="#p-06" style="font-size:11px; color:#4a4f57; padding:3px 0; border-bottom:none" style-hover="color:#1f4b8f">ニュース機能開発</a>
+          <a href="#p-07" style="font-size:11px; color:#4a4f57; padding:3px 0; border-bottom:none" style-hover="color:#1f4b8f">企業リスト機能</a>
+          <a href="#p-08" style="font-size:11px; color:#4a4f57; padding:3px 0; border-bottom:none" style-hover="color:#1f4b8f">データ取り込み API</a>
+          <a href="#p-09" style="font-size:11px; color:#4a4f57; padding:3px 0; border-bottom:none" style-hover="color:#1f4b8f">タスク管理アプリ</a>
+        </div>
+      </nav>
+      <div style="display:flex; flex-direction:column; gap:8px">
+        <a href="https://github.com/" style="font-family:'JetBrains Mono',monospace; font-size:11px; color:#1f4b8f; border-bottom:none">github.com/yamada-taro</a>
+        <span style="display:inline-flex; align-items:center; justify-content:center; border:1px solid #1f4b8f; color:#1f4b8f; font-size:11px; padding:8px 10px; letter-spacing:.04em; cursor:pointer" style-hover="background:#1f4b8f; color:#fbfaf7">PDF をダウンロード</span>
+      </div>
+    </aside>
+  </sc-if>
+
+  <main data-print="page" style="width:794px; flex:none; background:#fbfaf7; border:1px solid #c9c8c2; padding:56px; display:flex; flex-direction:column; gap:40px">
+
+    <header data-print="keep" style="display:flex; justify-content:space-between; align-items:flex-end; border-bottom:2px solid #14161a; padding-bottom:16px">
+      <div style="display:flex; flex-direction:column; gap:6px">
+        <span style="font-family:'JetBrains Mono',monospace; font-size:11px; letter-spacing:.16em; color:#1f4b8f">CURRICULUM VITAE</span>
+        <h1 style="margin:0; font-size:34px; font-weight:700; letter-spacing:.02em; color:#14161a">職務経歴書</h1>
+      </div>
+      <div style="display:flex; flex-direction:column; gap:4px; text-align:right; font-size:12px; color:#4a4f57">
+        <strong style="font-size:15px; font-weight:700; color:#14161a">山田 太郎</strong>
+        <span style="font-family:'JetBrains Mono',monospace; font-size:11px">github.com/yamada-taro</span>
+        <span style="font-family:'JetBrains Mono',monospace; font-size:11px; color:#7c828c">2026.08 更新</span>
+      </div>
+    </header>
+
+    <section id="sec-01" data-print="keep" style="display:grid; grid-template-columns:132px 1fr; gap:16px">
+      <div style="display:flex; flex-direction:column; gap:4px"><span style="font-family:'JetBrains Mono',monospace; font-size:11px; letter-spacing:.1em; color:#1f4b8f">01</span><span style="font-size:13px; font-weight:700; color:#14161a">要約</span></div>
+      <div style="display:flex; flex-direction:column; gap:14px">
+        <p style="margin:0; font-size:13px; line-height:1.95; color:#4a4f57; text-wrap:pretty">Web アプリケーションの開発に約 5 年携わってきました。アジャイル（XP）開発手法と、要件定義から運用まで一貫して関わってきた点が強みだと考えています。PM や実際のユーザーから現在の機能に対するフィードバックをもらい、開発中の機能はできるだけ早く MVP を作り上げてコアな価値を触ってもらうことで、早く方向転換できるような動き方が得意です。</p>
+        <p style="margin:0; font-size:13px; line-height:1.95; color:#4a4f57; text-wrap:pretty">また、マイクロサービスアーキテクチャを採用している現場で、各 API やマイクロフロントエンドごとに異なる言語・フレームワークを採用しているなかでキャッチアップをしつつ開発してきた経験が長いため、技術のキャッチアップに自信があります。ただ言われた通りに機能を開発するのではなく、本当にユーザーが求めている機能なのか PM などと考えながら開発できるエンジニアでありたいと考えています。</p>
+      </div>
+    </section>
+
+    <section id="sec-02" data-print="keep" style="display:grid; grid-template-columns:132px 1fr; gap:16px">
+      <div style="display:flex; flex-direction:column; gap:4px"><span style="font-family:'JetBrains Mono',monospace; font-size:11px; letter-spacing:.1em; color:#1f4b8f">02</span><span style="font-size:13px; font-weight:700; color:#14161a">スキル</span></div>
+      <div style="display:flex; flex-direction:column; gap:16px">
+        <div style="display:flex; flex-direction:column; gap:8px">
+          <span style="font-family:'JetBrains Mono',monospace; font-size:10px; letter-spacing:.1em; color:#7c828c">経験領域</span>
+          <p style="margin:0; font-size:12px; line-height:1.95; color:#4a4f57">Web アプリケーション開発（要件定義／設計／実装／テスト／運用）・アジャイル開発（XP・TDD・ペアプロ）・コンテナ環境での開発と環境構築・CI/CD 環境構築・機械学習モデル学習（Gemma2・LightGBM）</p>
+        </div>
+        <div style="display:grid; grid-template-columns:88px 1fr; gap:8px 14px; align-items:baseline">
+          <span style="font-family:'JetBrains Mono',monospace; font-size:10px; letter-spacing:.08em; color:#7c828c">LANG</span>
+          <div style="display:flex; flex-wrap:wrap; gap:4px 14px; font-size:12px; line-height:1.7; color:#4a4f57"><span style="color:#14161a; font-weight:700">Java <span style="font-family:'JetBrains Mono',monospace; font-size:10px; color:#1f4b8f">5</span></span><span style="color:#14161a; font-weight:700">Kotlin <span style="font-family:'JetBrains Mono',monospace; font-size:10px; color:#1f4b8f">4</span></span><span style="color:#14161a; font-weight:700">TypeScript <span style="font-family:'JetBrains Mono',monospace; font-size:10px; color:#1f4b8f">4</span></span><span>Clojure <span style="font-family:'JetBrains Mono',monospace; font-size:10px; color:#7c828c">3</span></span><span>F# <span style="font-family:'JetBrains Mono',monospace; font-size:10px; color:#7c828c">3</span></span><span>Python <span style="font-family:'JetBrains Mono',monospace; font-size:10px; color:#7c828c">2</span></span><span>Rust <span style="font-family:'JetBrains Mono',monospace; font-size:10px; color:#7c828c">2</span></span><span>Go <span style="font-family:'JetBrains Mono',monospace; font-size:10px; color:#7c828c">1</span></span><span>Scala <span style="font-family:'JetBrains Mono',monospace; font-size:10px; color:#7c828c">1</span></span></div>
+          <span style="font-family:'JetBrains Mono',monospace; font-size:10px; letter-spacing:.08em; color:#7c828c">FRAMEWORK</span>
+          <div style="display:flex; flex-wrap:wrap; gap:4px 14px; font-size:12px; line-height:1.7; color:#4a4f57"><span style="color:#14161a; font-weight:700">SpringBoot <span style="font-family:'JetBrains Mono',monospace; font-size:10px; color:#1f4b8f">5</span></span><span>Angular <span style="font-family:'JetBrains Mono',monospace; font-size:10px; color:#7c828c">3</span></span><span>Vue.js <span style="font-family:'JetBrains Mono',monospace; font-size:10px; color:#7c828c">2</span></span><span>React / Next.js <span style="font-family:'JetBrains Mono',monospace; font-size:10px; color:#7c828c">2</span></span><span>.NET <span style="font-family:'JetBrains Mono',monospace; font-size:10px; color:#7c828c">2</span></span><span>lit <span style="font-family:'JetBrains Mono',monospace; font-size:10px; color:#7c828c">1</span></span><span>Echo <span style="font-family:'JetBrains Mono',monospace; font-size:10px; color:#7c828c">1</span></span><span>FastAPI <span style="font-family:'JetBrains Mono',monospace; font-size:10px; color:#7c828c">1</span></span></div>
+          <span style="font-family:'JetBrains Mono',monospace; font-size:10px; letter-spacing:.08em; color:#7c828c">INFRA</span>
+          <div style="display:flex; flex-wrap:wrap; gap:4px 14px; font-size:12px; line-height:1.7; color:#4a4f57"><span style="color:#14161a; font-weight:700">Docker <span style="font-family:'JetBrains Mono',monospace; font-size:10px; color:#1f4b8f">5</span></span><span style="color:#14161a; font-weight:700">Google Cloud <span style="font-family:'JetBrains Mono',monospace; font-size:10px; color:#1f4b8f">4</span></span><span>Kubernetes / Helm <span style="font-family:'JetBrains Mono',monospace; font-size:10px; color:#7c828c">3</span></span><span>Jenkins / Buildkite <span style="font-family:'JetBrains Mono',monospace; font-size:10px; color:#7c828c">4</span></span><span>ArgoCD / Argo Workflow <span style="font-family:'JetBrains Mono',monospace; font-size:10px; color:#7c828c">3</span></span><span>GoCD <span style="font-family:'JetBrains Mono',monospace; font-size:10px; color:#7c828c">2</span></span><span>AWS <span style="font-family:'JetBrains Mono',monospace; font-size:10px; color:#7c828c">2</span></span></div>
+          <span style="font-family:'JetBrains Mono',monospace; font-size:10px; letter-spacing:.08em; color:#7c828c">DB / AI</span>
+          <div style="display:flex; flex-wrap:wrap; gap:4px 14px; font-size:12px; line-height:1.7; color:#4a4f57"><span style="color:#14161a; font-weight:700">PostgreSQL <span style="font-family:'JetBrains Mono',monospace; font-size:10px; color:#1f4b8f">5</span></span><span style="color:#14161a; font-weight:700">MySQL <span style="font-family:'JetBrains Mono',monospace; font-size:10px; color:#1f4b8f">5</span></span><span>ElasticSearch <span style="font-family:'JetBrains Mono',monospace; font-size:10px; color:#7c828c">1</span></span><span>Redis <span style="font-family:'JetBrains Mono',monospace; font-size:10px; color:#7c828c">1</span></span><span>SentenceTransformer / MLOps <span style="font-family:'JetBrains Mono',monospace; font-size:10px; color:#7c828c">2</span></span></div>
+        </div>
+        <span style="font-family:'JetBrains Mono',monospace; font-size:9px; color:#7c828c; letter-spacing:.04em">数字は経験年数（年）／太字は主力</span>
+      </div>
+    </section>
+
+    <section id="sec-03" style="display:grid; grid-template-columns:132px 1fr; gap:16px">
+      <div data-print="lead" style="display:flex; flex-direction:column; gap:4px"><span style="font-family:'JetBrains Mono',monospace; font-size:11px; letter-spacing:.1em; color:#1f4b8f">03</span><span style="font-size:13px; font-weight:700; color:#14161a">職務経歴<br>詳細</span><span style="font-family:'JetBrains Mono',monospace; font-size:10px; color:#7c828c">9 件<br>2020.03 —</span></div>
+      <div style="display:flex; flex-direction:column; gap:28px">
+
+        <article id="p-01" data-print="keep" style="border-top:1px solid #14161a; padding-top:14px; display:flex; flex-direction:column; gap:12px">
+          <div style="display:flex; justify-content:space-between; align-items:baseline; gap:16px">
+            <h2 style="margin:0; font-size:15px; font-weight:700; color:#14161a">データ生成機械学習モデルの学習</h2>
+            <span style="font-family:'JetBrains Mono',monospace; font-size:11px; color:#1f4b8f; white-space:nowrap">2025.08 — 2025.12</span>
+          </div>
+          <div style="display:grid; grid-template-columns:repeat(4,1fr); gap:1px; background:#d8d9d5; border:1px solid #d8d9d5">
+            <div style="background:#fbfaf7; padding:8px 10px; display:flex; flex-direction:column; gap:3px"><span style="font-family:'JetBrains Mono',monospace; font-size:9px; color:#7c828c">TEAM</span><span style="font-size:11px; color:#14161a">4 人／業務委託</span></div>
+            <div style="background:#fbfaf7; padding:8px 10px; display:flex; flex-direction:column; gap:3px"><span style="font-family:'JetBrains Mono',monospace; font-size:9px; color:#7c828c">LANG</span><span style="font-size:11px; color:#14161a">Python / LightGBM</span></div>
+            <div style="background:#fbfaf7; padding:8px 10px; display:flex; flex-direction:column; gap:3px"><span style="font-family:'JetBrains Mono',monospace; font-size:9px; color:#7c828c">INFRA</span><span style="font-size:11px; color:#14161a">Docker / Buildkite / GCP</span></div>
+            <div style="background:#fbfaf7; padding:8px 10px; display:flex; flex-direction:column; gap:3px"><span style="font-family:'JetBrains Mono',monospace; font-size:9px; color:#7c828c">PROCESS</span><span style="font-size:11px; color:#14161a">アジャイル（XP）</span></div>
+          </div>
+          <div style="display:grid; grid-template-columns:64px 1fr; gap:10px 14px; font-size:12px; line-height:1.9">
+            <span style="font-family:'JetBrains Mono',monospace; font-size:10px; color:#1f4b8f; padding-top:3px">役割</span><span style="color:#4a4f57">問題設計／アルゴリズム開発／データ設計／MLOps／設計・実装・テスト</span>
+            <span style="font-family:'JetBrains Mono',monospace; font-size:10px; color:#1f4b8f; padding-top:3px">課題</span><span style="color:#4a4f57">世の中にデータが存在しない非上場企業の情報を推定するという前例のない問題で、有効な特徴量が未知だった。大量かつ多様なデータを扱うため整合性の担保も難しかった。</span>
+            <span style="font-family:'JetBrains Mono',monospace; font-size:10px; color:#1f4b8f; padding-top:3px">打手</span><span style="color:#4a4f57">ドメインエキスパートと頻繁に対話してドメイン知識を深め、複数のモデル設計アプローチを実験。実験コードを柔軟に差し込めるアーキテクチャを整備し試行回数を上げた。</span>
+            <span style="font-family:'JetBrains Mono',monospace; font-size:10px; color:#1f4b8f; padding-top:3px">成果</span><span style="color:#4a4f57">整合性を保ちながら自動でデータ更新できる仕組みを提案・実装主導し、安定したデータ利用に貢献。データのリリースと推定モデルのリリースを分離し、価値提供を最優先にするチーム運用を先導した。</span>
+          </div>
+        </article>
+
+        <article id="p-02" data-print="keep" style="border-top:1px solid #d8d9d5; padding-top:14px; display:flex; flex-direction:column; gap:12px">
+          <div style="display:flex; justify-content:space-between; align-items:baseline; gap:16px">
+            <h2 style="margin:0; font-size:15px; font-weight:700; color:#14161a">キャリア開発のための Web アプリケーション開発（BtoB）</h2>
+            <span style="font-family:'JetBrains Mono',monospace; font-size:11px; color:#1f4b8f; white-space:nowrap">2025.04 — 2025.10</span>
+          </div>
+          <div style="display:grid; grid-template-columns:repeat(4,1fr); gap:1px; background:#d8d9d5; border:1px solid #d8d9d5">
+            <div style="background:#fbfaf7; padding:8px 10px; display:flex; flex-direction:column; gap:3px"><span style="font-family:'JetBrains Mono',monospace; font-size:9px; color:#7c828c">TEAM</span><span style="font-size:11px; color:#14161a">3 人／業務委託</span></div>
+            <div style="background:#fbfaf7; padding:8px 10px; display:flex; flex-direction:column; gap:3px"><span style="font-family:'JetBrains Mono',monospace; font-size:9px; color:#7c828c">LANG</span><span style="font-size:11px; color:#14161a">Go / TypeScript / Echo / Next.js</span></div>
+            <div style="background:#fbfaf7; padding:8px 10px; display:flex; flex-direction:column; gap:3px"><span style="font-family:'JetBrains Mono',monospace; font-size:9px; color:#7c828c">INFRA / DB</span><span style="font-size:11px; color:#14161a">Docker / AWS ／ MySQL / Redis</span></div>
+            <div style="background:#fbfaf7; padding:8px 10px; display:flex; flex-direction:column; gap:3px"><span style="font-family:'JetBrains Mono',monospace; font-size:9px; color:#7c828c">PROCESS</span><span style="font-size:11px; color:#14161a">Git / Jira</span></div>
+          </div>
+          <div style="display:grid; grid-template-columns:64px 1fr; gap:10px 14px; font-size:12px; line-height:1.9">
+            <span style="font-family:'JetBrains Mono',monospace; font-size:10px; color:#1f4b8f; padding-top:3px">役割</span><span style="color:#4a4f57">担当タスクの要件定義／設計／実装（コードレビューを受ける体制）</span>
+            <span style="font-family:'JetBrains Mono',monospace; font-size:10px; color:#1f4b8f; padding-top:3px">課題</span><span style="color:#4a4f57">外部委託でバグが頻出していた開発を社内に戻すタイミングで参画。既存機能の再現とデータ移行を期限内に行いつつ、将来の開発速度を落とさない設計が求められた。</span>
+            <span style="font-family:'JetBrains Mono',monospace; font-size:10px; color:#1f4b8f; padding-top:3px">打手</span><span style="color:#4a4f57">最低限の E2E テストを低コストに実装する方法を整理し、ドメイン定義とアーキテクチャ設計を提案。</span>
+            <span style="font-family:'JetBrains Mono',monospace; font-size:10px; color:#1f4b8f; padding-top:3px">成果</span><span style="color:#4a4f57">リプレイスを進めながら、中長期的な保守性・開発速度に効く土台を確保した。社員のキャリア面談で使うレポート機能を提供。</span>
+          </div>
+        </article>
+
+        <article id="p-03" data-print="keep" style="border-top:1px solid #d8d9d5; padding-top:14px; display:flex; flex-direction:column; gap:12px">
+          <div style="display:flex; justify-content:space-between; align-items:baseline; gap:16px">
+            <h2 style="margin:0; font-size:15px; font-weight:700; color:#14161a">社内利用のための LLM 開発</h2>
+            <span style="font-family:'JetBrains Mono',monospace; font-size:11px; color:#1f4b8f; white-space:nowrap">2025.03 — 2025.08</span>
+          </div>
+          <div style="display:grid; grid-template-columns:repeat(4,1fr); gap:1px; background:#d8d9d5; border:1px solid #d8d9d5">
+            <div style="background:#fbfaf7; padding:8px 10px; display:flex; flex-direction:column; gap:3px"><span style="font-family:'JetBrains Mono',monospace; font-size:9px; color:#7c828c">TEAM</span><span style="font-size:11px; color:#14161a">4 人／業務委託</span></div>
+            <div style="background:#fbfaf7; padding:8px 10px; display:flex; flex-direction:column; gap:3px"><span style="font-family:'JetBrains Mono',monospace; font-size:9px; color:#7c828c">LANG</span><span style="font-size:11px; color:#14161a">Kotlin / F# / Python / FastAPI</span></div>
+            <div style="background:#fbfaf7; padding:8px 10px; display:flex; flex-direction:column; gap:3px"><span style="font-family:'JetBrains Mono',monospace; font-size:9px; color:#7c828c">INFRA / DB</span><span style="font-size:11px; color:#14161a">GCP Vertex AI ／ PostgreSQL / ElasticSearch</span></div>
+            <div style="background:#fbfaf7; padding:8px 10px; display:flex; flex-direction:column; gap:3px"><span style="font-family:'JetBrains Mono',monospace; font-size:9px; color:#7c828c">PROCESS</span><span style="font-size:11px; color:#14161a">アジャイル（XP）</span></div>
+          </div>
+          <div style="display:grid; grid-template-columns:64px 1fr; gap:10px 14px; font-size:12px; line-height:1.9">
+            <span style="font-family:'JetBrains Mono',monospace; font-size:10px; color:#1f4b8f; padding-top:3px">役割</span><span style="color:#4a4f57">問題設計／アルゴリズム開発／実験／MLOps／GPU・Vertex AI 設定／API 開発</span>
+            <span style="font-family:'JetBrains Mono',monospace; font-size:10px; color:#1f4b8f; padding-top:3px">課題</span><span style="color:#4a4f57">Vertex AI で使える GPU にコスト・リージョンの制約があり、連続稼働の上限時間で学習が完了しない、モデルが GPU に乗り切らないという問題があった。</span>
+            <span style="font-family:'JetBrains Mono',monospace; font-size:10px; color:#1f4b8f; padding-top:3px">打手</span><span style="color:#4a4f57">機械学習エンジニアと協力して FSDP などの並列分散学習を導入し 1GPU あたりの学習時間を短縮。QLoRA・2D-Matryoshka でモデルサイズを圧縮。Buildkite で MLOps を最適化し、失敗は早く落ちるパイプラインに。実験処理を差し込める設計で毎回のコード量を削減した。</span>
+            <span style="font-family:'JetBrains Mono',monospace; font-size:10px; color:#1f4b8f; padding-top:3px">成果</span><span style="color:#4a4f57">Gemma2 ＋ Sentence Transformer で社内ドメイン特化の分類・検索モデルを実用化。ベクトルの事前生成と索引更新の仕組みを整え、ベクトル検索 API を実用速度で提供した。</span>
+          </div>
+        </article>
+
+        <article id="p-04" data-print="keep" style="border-top:1px solid #d8d9d5; padding-top:14px; display:flex; flex-direction:column; gap:12px">
+          <div style="display:flex; justify-content:space-between; align-items:baseline; gap:16px">
+            <h2 style="margin:0; font-size:15px; font-weight:700; color:#14161a">海外事業向けの機能開発</h2>
+            <span style="font-family:'JetBrains Mono',monospace; font-size:11px; color:#1f4b8f; white-space:nowrap">2024.09 — 2025.03</span>
+          </div>
+          <div style="display:grid; grid-template-columns:repeat(4,1fr); gap:1px; background:#d8d9d5; border:1px solid #d8d9d5">
+            <div style="background:#fbfaf7; padding:8px 10px; display:flex; flex-direction:column; gap:3px"><span style="font-family:'JetBrains Mono',monospace; font-size:9px; color:#7c828c">TEAM</span><span style="font-size:11px; color:#14161a">4 人／業務委託</span></div>
+            <div style="background:#fbfaf7; padding:8px 10px; display:flex; flex-direction:column; gap:3px"><span style="font-family:'JetBrains Mono',monospace; font-size:9px; color:#7c828c">LANG</span><span style="font-size:11px; color:#14161a">Kotlin / F# / TypeScript / .NET</span></div>
+            <div style="background:#fbfaf7; padding:8px 10px; display:flex; flex-direction:column; gap:3px"><span style="font-family:'JetBrains Mono',monospace; font-size:9px; color:#7c828c">INFRA / DB</span><span style="font-size:11px; color:#14161a">Docker / Jenkins / GCP ／ PostgreSQL / MySQL</span></div>
+            <div style="background:#fbfaf7; padding:8px 10px; display:flex; flex-direction:column; gap:3px"><span style="font-family:'JetBrains Mono',monospace; font-size:9px; color:#7c828c">PROCESS</span><span style="font-size:11px; color:#14161a">アジャイル（XP）</span></div>
+          </div>
+          <div style="display:grid; grid-template-columns:64px 1fr; gap:10px 14px; font-size:12px; line-height:1.9">
+            <span style="font-family:'JetBrains Mono',monospace; font-size:10px; color:#1f4b8f; padding-top:3px">役割</span><span style="color:#4a4f57">要件定義／工数見積もり／インフラ構築／設計・実装・テスト／CI・CD 環境構築</span>
+            <span style="font-family:'JetBrains Mono',monospace; font-size:10px; color:#1f4b8f; padding-top:3px">課題</span><span style="color:#4a4f57">PO とのコミュニケーションでチームが疲弊し、優先順位の頻繁な変更で近視眼的になっていた。組織的には Web Components 活用を進めたい時期だったが、その知見が蓄積されていなかった。</span>
+            <span style="font-family:'JetBrains Mono',monospace; font-size:10px; color:#1f4b8f; padding-top:3px">打手</span><span style="color:#4a4f57">個人的に Web Component を試作して知見をチームへ還元。PO が根本的に達成したい目標を確認し、優先順位の変更理由を状況の変化として共有できる形に整えた。</span>
+            <span style="font-family:'JetBrains Mono',monospace; font-size:10px; color:#1f4b8f; padding-top:3px">成果</span><span style="color:#4a4f57">各国の法律・文化にフィットしたローカライズ機能を提供。開発チームと PO が優先順位に納得感を持てる共通認識を確立した。</span>
+          </div>
+        </article>
+
+        <article id="p-05" data-print="keep" style="border-top:1px solid #d8d9d5; padding-top:14px; display:flex; flex-direction:column; gap:12px">
+          <div style="display:flex; justify-content:space-between; align-items:baseline; gap:16px">
+            <h2 style="margin:0; font-size:15px; font-weight:700; color:#14161a">海外知見共有サービスのシステムマイグレーション・機能開発</h2>
+            <span style="font-family:'JetBrains Mono',monospace; font-size:11px; color:#1f4b8f; white-space:nowrap">2024.04 — 2024.09</span>
+          </div>
+          <div style="display:grid; grid-template-columns:repeat(4,1fr); gap:1px; background:#d8d9d5; border:1px solid #d8d9d5">
+            <div style="background:#fbfaf7; padding:8px 10px; display:flex; flex-direction:column; gap:3px"><span style="font-family:'JetBrains Mono',monospace; font-size:9px; color:#7c828c">TEAM</span><span style="font-size:11px; color:#14161a">3 人／業務委託</span></div>
+            <div style="background:#fbfaf7; padding:8px 10px; display:flex; flex-direction:column; gap:3px"><span style="font-family:'JetBrains Mono',monospace; font-size:9px; color:#7c828c">LANG</span><span style="font-size:11px; color:#14161a">Kotlin / Java / TypeScript / SpringBoot / Angular</span></div>
+            <div style="background:#fbfaf7; padding:8px 10px; display:flex; flex-direction:column; gap:3px"><span style="font-family:'JetBrains Mono',monospace; font-size:9px; color:#7c828c">INFRA / DB</span><span style="font-size:11px; color:#14161a">Docker / Jenkins / AWS ／ PostgreSQL / MySQL</span></div>
+            <div style="background:#fbfaf7; padding:8px 10px; display:flex; flex-direction:column; gap:3px"><span style="font-family:'JetBrains Mono',monospace; font-size:9px; color:#7c828c">PROCESS</span><span style="font-size:11px; color:#14161a">アジャイル（XP）／機械学習</span></div>
+          </div>
+          <div style="display:grid; grid-template-columns:64px 1fr; gap:10px 14px; font-size:12px; line-height:1.9">
+            <span style="font-family:'JetBrains Mono',monospace; font-size:10px; color:#1f4b8f; padding-top:3px">役割</span><span style="color:#4a4f57">要件定義／工数見積もり／インフラ構築／設計・実装・テスト／CI・CD 環境構築</span>
+            <span style="font-family:'JetBrains Mono',monospace; font-size:10px; color:#1f4b8f; padding-top:3px">課題</span><span style="color:#4a4f57">買収したサービスを自社環境で運用するためのマイグレーションが必要。設計思想・デプロイ思想が異なり、認知負荷と開発コストが高かった。AWS や機械学習システムなど未経験の技術も多かった。</span>
+            <span style="font-family:'JetBrains Mono',monospace; font-size:10px; color:#1f4b8f; padding-top:3px">打手</span><span style="color:#4a4f57">買収元エンジニアのサポートを得ながらキャッチアップし、テストと CI・CD 環境を整備。日常的に強度高く改善を重ねる進め方に切り替えた。</span>
+            <span style="font-family:'JetBrains Mono',monospace; font-size:10px; color:#1f4b8f; padding-top:3px">成果</span><span style="color:#4a4f57">マイグレーションを完了させ、機能開発とリファクタリングを継続できる状態にした。</span>
+          </div>
+        </article>
+
+        <article id="p-06" data-print="keep" style="border-top:1px solid #d8d9d5; padding-top:14px; display:flex; flex-direction:column; gap:12px">
+          <div style="display:flex; justify-content:space-between; align-items:baseline; gap:16px">
+            <h2 style="margin:0; font-size:15px; font-weight:700; color:#14161a">市場分析 Web アプリケーションのニュース機能開発</h2>
+            <span style="font-family:'JetBrains Mono',monospace; font-size:11px; color:#1f4b8f; white-space:nowrap">2023.04 — 2024.04</span>
+          </div>
+          <div style="display:grid; grid-template-columns:repeat(4,1fr); gap:1px; background:#d8d9d5; border:1px solid #d8d9d5">
+            <div style="background:#fbfaf7; padding:8px 10px; display:flex; flex-direction:column; gap:3px"><span style="font-family:'JetBrains Mono',monospace; font-size:9px; color:#7c828c">TEAM</span><span style="font-size:11px; color:#14161a">4 人／業務委託</span></div>
+            <div style="background:#fbfaf7; padding:8px 10px; display:flex; flex-direction:column; gap:3px"><span style="font-family:'JetBrains Mono',monospace; font-size:9px; color:#7c828c">LANG</span><span style="font-size:11px; color:#14161a">Kotlin / Java / Scala / Clojure / Rust / TypeScript</span></div>
+            <div style="background:#fbfaf7; padding:8px 10px; display:flex; flex-direction:column; gap:3px"><span style="font-family:'JetBrains Mono',monospace; font-size:9px; color:#7c828c">INFRA / DB</span><span style="font-size:11px; color:#14161a">Kubernetes / Helm / Jenkins / Argo / GCP</span></div>
+            <div style="background:#fbfaf7; padding:8px 10px; display:flex; flex-direction:column; gap:3px"><span style="font-family:'JetBrains Mono',monospace; font-size:9px; color:#7c828c">PROCESS</span><span style="font-size:11px; color:#14161a">アジャイル（XP）</span></div>
+          </div>
+          <div style="display:grid; grid-template-columns:64px 1fr; gap:10px 14px; font-size:12px; line-height:1.9">
+            <span style="font-family:'JetBrains Mono',monospace; font-size:10px; color:#1f4b8f; padding-top:3px">役割</span><span style="color:#4a4f57">要件定義／工数見積もり／設計・実装・テスト／CI・CD 環境構築</span>
+            <span style="font-family:'JetBrains Mono',monospace; font-size:10px; color:#1f4b8f; padding-top:3px">課題</span><span style="color:#4a4f57">ニュース機能は古くに実装されたレガシーシステムで技術的負債の返済が必要な一方、ユーザーへ価値を届ける機能追加も止められない状況だった。</span>
+            <span style="font-family:'JetBrains Mono',monospace; font-size:10px; color:#1f4b8f; padding-top:3px">打手</span><span style="color:#4a4f57">プロダクトマネージャーと対話しながら機能開発のスコープを絞り、最も価値が届く部分の開発とリファクタリングを並走させた。</span>
+            <span style="font-family:'JetBrains Mono',monospace; font-size:10px; color:#1f4b8f; padding-top:3px">成果</span><span style="color:#4a4f57">デイリーに使ってもらえるニュース機能を継続的に改善しつつ、開発効率の低下を防いだ。</span>
+          </div>
+        </article>
+
+        <article id="p-07" data-print="keep" style="border-top:1px solid #d8d9d5; padding-top:14px; display:flex; flex-direction:column; gap:12px">
+          <div style="display:flex; justify-content:space-between; align-items:baseline; gap:16px">
+            <h2 style="margin:0; font-size:15px; font-weight:700; color:#14161a">市場分析 Web アプリケーションの企業リスト機能 新規開発</h2>
+            <span style="font-family:'JetBrains Mono',monospace; font-size:11px; color:#1f4b8f; white-space:nowrap">2022.12 — 2023.04</span>
+          </div>
+          <div style="display:grid; grid-template-columns:repeat(4,1fr); gap:1px; background:#d8d9d5; border:1px solid #d8d9d5">
+            <div style="background:#fbfaf7; padding:8px 10px; display:flex; flex-direction:column; gap:3px"><span style="font-family:'JetBrains Mono',monospace; font-size:9px; color:#7c828c">TEAM</span><span style="font-size:11px; color:#14161a">5 人／業務委託</span></div>
+            <div style="background:#fbfaf7; padding:8px 10px; display:flex; flex-direction:column; gap:3px"><span style="font-family:'JetBrains Mono',monospace; font-size:9px; color:#7c828c">LANG</span><span style="font-size:11px; color:#14161a">Kotlin / Java / Clojure / F# / TypeScript / Vue.js / lit</span></div>
+            <div style="background:#fbfaf7; padding:8px 10px; display:flex; flex-direction:column; gap:3px"><span style="font-family:'JetBrains Mono',monospace; font-size:9px; color:#7c828c">INFRA / DB</span><span style="font-size:11px; color:#14161a">Kubernetes / Buildkite / GoCD / Argo / GCP</span></div>
+            <div style="background:#fbfaf7; padding:8px 10px; display:flex; flex-direction:column; gap:3px"><span style="font-family:'JetBrains Mono',monospace; font-size:9px; color:#7c828c">PROCESS</span><span style="font-size:11px; color:#14161a">XP ／ Web Components</span></div>
+          </div>
+          <div style="display:grid; grid-template-columns:64px 1fr; gap:10px 14px; font-size:12px; line-height:1.9">
+            <span style="font-family:'JetBrains Mono',monospace; font-size:10px; color:#1f4b8f; padding-top:3px">役割</span><span style="color:#4a4f57">要件定義／工数見積もり／設計・実装・テスト／CI・CD 環境構築</span>
+            <span style="font-family:'JetBrains Mono',monospace; font-size:10px; color:#1f4b8f; padding-top:3px">課題</span><span style="color:#4a4f57">新規プロジェクトの立ち上げ期で、限られた工数のなかで確実に立ち上げを成功させる必要があった。</span>
+            <span style="font-family:'JetBrains Mono',monospace; font-size:10px; color:#1f4b8f; padding-top:3px">打手</span><span style="color:#4a4f57">PdM にコンセプトを共有してもらった上で工数見積もりを行い、どの機能が最も価値を届けるかを対話して優先順位を決定。骨子から先に作り、早く一連の機能を体験してもらってフィードバックを得た。</span>
+            <span style="font-family:'JetBrains Mono',monospace; font-size:10px; color:#1f4b8f; padding-top:3px">成果</span><span style="color:#4a4f57">組織全体で共有できる企業リスト機能をリリース。手戻りと方向転換を早い段階で行える進め方を確立した。</span>
+          </div>
+        </article>
+
+        <article id="p-08" data-print="keep" style="border-top:1px solid #d8d9d5; padding-top:14px; display:flex; flex-direction:column; gap:12px">
+          <div style="display:flex; justify-content:space-between; align-items:baseline; gap:16px">
+            <h2 style="margin:0; font-size:15px; font-weight:700; color:#14161a">市場分析 Web アプリケーションのデータ取り込み API 新規開発</h2>
+            <span style="font-family:'JetBrains Mono',monospace; font-size:11px; color:#1f4b8f; white-space:nowrap">2021.08 — 2022.12</span>
+          </div>
+          <div style="display:grid; grid-template-columns:repeat(4,1fr); gap:1px; background:#d8d9d5; border:1px solid #d8d9d5">
+            <div style="background:#fbfaf7; padding:8px 10px; display:flex; flex-direction:column; gap:3px"><span style="font-family:'JetBrains Mono',monospace; font-size:9px; color:#7c828c">TEAM</span><span style="font-size:11px; color:#14161a">3 人／業務委託</span></div>
+            <div style="background:#fbfaf7; padding:8px 10px; display:flex; flex-direction:column; gap:3px"><span style="font-family:'JetBrains Mono',monospace; font-size:9px; color:#7c828c">LANG</span><span style="font-size:11px; color:#14161a">Kotlin / Java / Clojure / F# / TypeScript / Vue.js</span></div>
+            <div style="background:#fbfaf7; padding:8px 10px; display:flex; flex-direction:column; gap:3px"><span style="font-family:'JetBrains Mono',monospace; font-size:9px; color:#7c828c">INFRA / DB</span><span style="font-size:11px; color:#14161a">Kubernetes / Helm / Jenkins / Argo / GCP</span></div>
+            <div style="background:#fbfaf7; padding:8px 10px; display:flex; flex-direction:column; gap:3px"><span style="font-family:'JetBrains Mono',monospace; font-size:9px; color:#7c828c">PROCESS</span><span style="font-size:11px; color:#14161a">アジャイル（XP）</span></div>
+          </div>
+          <div style="display:grid; grid-template-columns:64px 1fr; gap:10px 14px; font-size:12px; line-height:1.9">
+            <span style="font-family:'JetBrains Mono',monospace; font-size:10px; color:#1f4b8f; padding-top:3px">役割</span><span style="color:#4a4f57">要件定義／工数見積もり／設計・実装・テスト／CI・CD 環境構築</span>
+            <span style="font-family:'JetBrains Mono',monospace; font-size:10px; color:#1f4b8f; padding-top:3px">課題</span><span style="color:#4a4f57">データ取り込み API は一度作ると触る機会が少ないため、保守性・運用性の高さが特に求められた。</span>
+            <span style="font-family:'JetBrains Mono',monospace; font-size:10px; color:#1f4b8f; padding-top:3px">打手</span><span style="color:#4a4f57">運用性の高いクエリパラメーター設計を検討し、クリーンアーキテクチャをベースに依存方向を管理して高凝集・疎結合な設計に。エラーハンドリングとロギングをチューニングした。</span>
+            <span style="font-family:'JetBrains Mono',monospace; font-size:10px; color:#1f4b8f; padding-top:3px">成果</span><span style="color:#4a4f57">新規データサプライヤーのデータをプロダクトへ取り込み可能に。取り込み失敗時の原因特定とリカバリー時間を短縮した。</span>
+          </div>
+        </article>
+
+        <article id="p-09" data-print="keep" style="border-top:1px solid #d8d9d5; padding-top:14px; display:flex; flex-direction:column; gap:12px">
+          <div style="display:flex; justify-content:space-between; align-items:baseline; gap:16px">
+            <h2 style="margin:0; font-size:15px; font-weight:700; color:#14161a">タスク管理 Web アプリケーションの新規開発</h2>
+            <span style="font-family:'JetBrains Mono',monospace; font-size:11px; color:#1f4b8f; white-space:nowrap">2020.03 — 2021.07</span>
+          </div>
+          <div style="display:grid; grid-template-columns:repeat(4,1fr); gap:1px; background:#d8d9d5; border:1px solid #d8d9d5">
+            <div style="background:#fbfaf7; padding:8px 10px; display:flex; flex-direction:column; gap:3px"><span style="font-family:'JetBrains Mono',monospace; font-size:9px; color:#7c828c">TEAM</span><span style="font-size:11px; color:#14161a">15 人／正社員</span></div>
+            <div style="background:#fbfaf7; padding:8px 10px; display:flex; flex-direction:column; gap:3px"><span style="font-family:'JetBrains Mono',monospace; font-size:9px; color:#7c828c">LANG</span><span style="font-size:11px; color:#14161a">Java / SpringBoot / VBA / VBScript</span></div>
+            <div style="background:#fbfaf7; padding:8px 10px; display:flex; flex-direction:column; gap:3px"><span style="font-family:'JetBrains Mono',monospace; font-size:9px; color:#7c828c">INFRA / DB</span><span style="font-size:11px; color:#14161a">Docker ／ MySQL</span></div>
+            <div style="background:#fbfaf7; padding:8px 10px; display:flex; flex-direction:column; gap:3px"><span style="font-family:'JetBrains Mono',monospace; font-size:9px; color:#7c828c">PROCESS</span><span style="font-size:11px; color:#14161a">ウォーターフォール</span></div>
+          </div>
+          <div style="display:grid; grid-template-columns:64px 1fr; gap:10px 14px; font-size:12px; line-height:1.9">
+            <span style="font-family:'JetBrains Mono',monospace; font-size:10px; color:#1f4b8f; padding-top:3px">役割</span><span style="color:#4a4f57">実装／テスト実装</span>
+            <span style="font-family:'JetBrains Mono',monospace; font-size:10px; color:#1f4b8f; padding-top:3px">課題</span><span style="color:#4a4f57">詳細設計書に基づく実装でインターフェースは変更できず、テスト手順書の実行と報告書作成に工数を取られていた。</span>
+            <span style="font-family:'JetBrains Mono',monospace; font-size:10px; color:#1f4b8f; padding-top:3px">打手</span><span style="color:#4a4f57">処理を private 関数に分割して意図が明確な単位にする改善を提案。VBA・VBScript で報告書を半自動生成するツールを開発しチームへ提案した。</span>
+            <span style="font-family:'JetBrains Mono',monospace; font-size:10px; color:#1f4b8f; padding-top:3px">成果</span><span style="color:#4a4f57">カンバン・チケット管理機能をリリース。報告書作成の手作業を削減した。</span>
+          </div>
+        </article>
+
+      </div>
+    </section>
+
+    <footer style="display:flex; justify-content:space-between; border-top:1px solid #d8d9d5; padding-top:12px; font-family:'JetBrains Mono',monospace; font-size:10px; color:#7c828c">
+      <span>山田 太郎 — 職務経歴書</span><span>2026.08.11</span>
+    </footer>
+  </main>
+</div>
+
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{&quot;showRail&quot;:{&quot;editor&quot;:&quot;boolean&quot;,&quot;default&quot;:true,&quot;tsType&quot;:&quot;boolean&quot;,&quot;section&quot;:&quot;表示&quot;}}">
+class Component extends DCLogic {
+  renderVals() {
+    return { showRail: this.props.showRail ?? true };
+  }
+}
+</script>
+</body>
+</html>

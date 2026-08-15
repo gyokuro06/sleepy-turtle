@@ -27,18 +27,27 @@ jobs:
         with:
           node-version: 22
 
-      - name: Install dependencies
+      - name: Install blog dependencies
         run: pnpm install
         working-directory: ./blog
 
-      - name: Build
+      - name: Build blog
         run: pnpm run build
         working-directory: ./blog
 
+      - name: Install works dependencies
+        run: pnpm install
+        working-directory: ./works
+
+      - name: Build works
+        run: pnpm run build
+        working-directory: ./works
+
       - name: Prepare deploy artifact
         run: |
-          mkdir -p deploy/blog
+          mkdir -p deploy/blog deploy/works
           cp -r ./blog/dist/. deploy/blog/
+          cp -r ./works/dist/. deploy/works/
           echo '<meta http-equiv="refresh" content="0; url=/blog/">' > deploy/index.html
 
       - name: Upload artifact
