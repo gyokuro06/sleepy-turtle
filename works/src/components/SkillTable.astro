@@ -151,11 +151,36 @@ import { getIcon } from '../lib/icons';
 	}
 
 	@media print {
+		.section {
+			gap: var(--space-3);
+			break-inside: avoid;
+		}
+
+		.section-heading {
+			padding-block-end: var(--space-1);
+			gap: var(--space-2);
+		}
+
 		.section-num {
 			color: var(--c-print-muted);
 		}
 
+		.skill-table {
+			gap: var(--space-1);
+		}
+
+		.skill-row {
+			padding-block: 0.15rem;
+			gap: var(--space-1) var(--space-3);
+			break-inside: avoid;
+		}
+
+		.skill-tags {
+			gap: 0.2em;
+		}
+
 		.skill-tag {
+			padding: 0.15em 0.55em;
 			background: var(--c-print-tag-bg);
 			border-color: var(--c-print-tag-border);
 			color: var(--c-print-tag-text);

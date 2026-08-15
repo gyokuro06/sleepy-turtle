@@ -11,37 +11,39 @@ import { getIcon } from '../lib/icons';
 	<div class="project-list">
 		{projects.map((project) => (
 			<article class="project-card" aria-label={project.title}>
-				<h3 class="project-title">{project.title}</h3>
-				<div class="project-meta">
-					<span class="project-period">{project.period}</span>
-					<span class="project-meta-sep" aria-hidden="true" />
-					<span class="project-meta-item">チーム {project.teamSize}</span>
-					<span class="project-meta-sep" aria-hidden="true" />
-					<span class="project-meta-item">{project.role}</span>
-				</div>
-				<ul class="project-tags">
-					{project.techStack.map((tech) => {
-						const icon = getIcon(tech);
-						return (
-							<li
-								class="project-tag"
-								style={icon ? `--brand: #${icon.hex}` : undefined}
-								data-has-icon={icon ? '' : undefined}
-							>
-								{icon && (
-									<svg
-										class="skill-icon"
-										viewBox="0 0 24 24"
-										aria-hidden="true"
-									>
-										<path d={icon.path} fill="currentColor" />
-									</svg>
-								)}
-								{tech}
-							</li>
-						);
-					})}
-				</ul>
+				<header class="project-header">
+					<h3 class="project-title">{project.title}</h3>
+					<div class="project-meta">
+						<span class="project-period">{project.period}</span>
+						<span class="project-meta-sep" aria-hidden="true" />
+						<span class="project-meta-item">チーム {project.teamSize}</span>
+						<span class="project-meta-sep" aria-hidden="true" />
+						<span class="project-meta-item">{project.role}</span>
+					</div>
+					<ul class="project-tags">
+						{project.techStack.map((tech) => {
+							const icon = getIcon(tech);
+							return (
+								<li
+									class="project-tag"
+									style={icon ? `--brand: #${icon.hex}` : undefined}
+									data-has-icon={icon ? '' : undefined}
+								>
+									{icon && (
+										<svg
+											class="skill-icon"
+											viewBox="0 0 24 24"
+											aria-hidden="true"
+										>
+											<path d={icon.path} fill="currentColor" />
+										</svg>
+									)}
+									{tech}
+								</li>
+							);
+						})}
+					</ul>
+				</header>
 				<div class="project-body">
 					<div class="project-block">
 						<h3 class="project-block-label">概要</h3>
@@ -103,7 +105,12 @@ import { getIcon } from '../lib/icons';
 		display: flex;
 		flex-direction: column;
 		gap: var(--space-4);
-		break-inside: avoid;
+	}
+
+	.project-header {
+		display: flex;
+		flex-direction: column;
+		gap: var(--space-3);
 	}
 
 	.project-title {
@@ -202,20 +209,65 @@ import { getIcon } from '../lib/icons';
 	}
 
 	@media print {
+		.section {
+			gap: var(--space-3);
+		}
+
+		.section-heading {
+			padding-block-end: var(--space-1);
+			gap: var(--space-2);
+			break-after: avoid;
+		}
+
 		.section-num {
 			color: var(--c-print-muted);
 		}
 
+		.project-list {
+			gap: var(--space-3);
+		}
+
+		.project-card {
+			padding: var(--space-3) var(--space-4);
+			gap: var(--space-2);
+			background: var(--c-print-bg);
+			border-color: var(--c-print-tag-border);
+			border-inline-start-color: var(--c-print-accent);
+			/* 長いカードは分割可。タイトル周りだけ次ページに連れない */
+			break-inside: auto;
+			break-before: auto;
+		}
+
+		.project-header {
+			gap: var(--space-1);
+			break-inside: avoid;
+			break-after: avoid;
+		}
+
+		.project-tags {
+			gap: 0.2em;
+		}
+
 		.project-tag {
+			padding: 0.12em 0.45em;
 			background: var(--c-print-tag-bg);
 			border-color: var(--c-print-tag-border);
 			color: var(--c-print-tag-text);
 		}
 
-		.project-card {
-			background: var(--c-print-bg);
-			border-color: var(--c-print-tag-border);
-			border-inline-start-color: var(--c-print-accent);
+		.project-body {
+			gap: var(--space-2);
+		}
+
+		.project-block-label {
+			break-after: avoid;
+		}
+
+		.project-block-text {
+			line-height: 1.55;
+			max-width: none;
+			orphans: 3;
+			widows: 3;
 		}
 	}
 </style>

@@ -141,20 +141,37 @@ import { profile } from '../data/works';
 		.intro {
 			background: var(--c-print-bg);
 			border-color: var(--c-print-line);
+			break-inside: avoid;
+			break-after: avoid;
 		}
 
 		.intro-inner {
 			width: 100%;
-			padding-block: var(--space-6) var(--space-5);
+			padding-block: var(--space-3) var(--space-2);
+			gap: var(--space-3);
+		}
+
+		.intro-role {
+			margin-bottom: var(--space-1);
 		}
 
 		.intro-name {
+			margin-bottom: var(--space-2);
 			font-size: var(--text-2xl);
 			padding-inline: 0;
 			margin-inline: 0;
 			background: transparent;
 			box-shadow: none;
 			cursor: default;
+		}
+
+		.intro-rule {
+			margin-bottom: var(--space-2);
+		}
+
+		.intro-lead {
+			line-height: 1.55;
+			max-width: none;
 		}
 	}
 </style>

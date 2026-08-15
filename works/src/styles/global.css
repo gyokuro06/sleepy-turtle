@@ -129,9 +129,18 @@ a {
 }
 
 @media print {
+	/*
+	 * PDF は画面より詰めて読める密度に。html の font-size を下げることで
+	 * rem ベースの余白・文字サイズがまとめて縮小する。
+	 */
+	html {
+		font-size: 10.5pt;
+	}
+
 	body {
 		background: var(--c-print-bg);
 		color: var(--c-print-text);
+		line-height: 1.55;
 	}
 
 	.no-print {
@@ -139,6 +148,6 @@ a {
 	}
 
 	@page {
-		margin: 1.5cm;
+		margin: 1cm 1.1cm;
 	}
 }
